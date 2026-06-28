@@ -1,0 +1,589 @@
+<!DOCTYPE html><html class="dark" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>AETHER.AI - Systems</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary": "#5d0055",
+                      "surface-glass": "rgba(215, 226, 234, 0.05)",
+                      "secondary-fixed": "#f3daff",
+                      "on-primary-fixed-variant": "#830079",
+                      "tertiary-fixed-dim": "#becf63",
+                      "text-primary": "#D7E2EA",
+                      "background": "#131313",
+                      "surface-dim": "#131313",
+                      "tertiary": "#becf63",
+                      "inverse-on-surface": "#313030",
+                      "error-container": "#93000a",
+                      "secondary": "#e2b6ff",
+                      "accent-gradient": "linear-gradient(123deg, #18011F 7%, #B600A8 37%, #7621B0 72%, #BE4C00 100%)",
+                      "text-secondary": "rgba(215, 226, 234, 0.6)",
+                      "on-tertiary-fixed": "#191e00",
+                      "outline-variant": "#55414f",
+                      "on-secondary-fixed-variant": "#6b0fa6",
+                      "primary-container": "#b600a8",
+                      "on-secondary-fixed": "#2e004d",
+                      "secondary-container": "#6b0fa6",
+                      "on-secondary": "#4d007b",
+                      "on-tertiary-container": "#daec7b",
+                      "primary-fixed": "#ffd7f2",
+                      "border-subtle": "rgba(215, 226, 234, 0.2)",
+                      "secondary-fixed-dim": "#e2b6ff",
+                      "surface-tint": "#ffaceb",
+                      "on-surface": "#e5e2e1",
+                      "tertiary-container": "#5d6b00",
+                      "surface-variant": "#353534",
+                      "on-secondary-container": "#d79eff",
+                      "on-primary-container": "#ffd6f1",
+                      "surface-container-low": "#1c1b1b",
+                      "surface-container-highest": "#353534",
+                      "on-surface-variant": "#dabfd0",
+                      "surface": "#131313",
+                      "on-error-container": "#ffdad6",
+                      "on-tertiary-fixed-variant": "#414c00",
+                      "surface-container-lowest": "#0e0e0e",
+                      "tertiary-fixed": "#daec7c",
+                      "primary": "#ffaceb",
+                      "on-tertiary": "#2c3400",
+                      "inverse-surface": "#e5e2e1",
+                      "surface-container": "#201f1f",
+                      "on-background": "#e5e2e1",
+                      "primary-fixed-dim": "#ffaceb",
+                      "inverse-primary": "#ac009f",
+                      "danger-orange": "#E8400D",
+                      "surface-bright": "#3a3939",
+                      "on-primary-fixed": "#390034",
+                      "on-error": "#690005",
+                      "surface-container-high": "#2a2a2a",
+                      "outline": "#a28a9a",
+                      "error": "#ffb4ab"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit": "8px",
+                      "section-gap": "160px",
+                      "margin-desktop": "80px",
+                      "container-max": "1440px",
+                      "margin-mobile": "24px",
+                      "gutter": "32px"
+              },
+              "fontFamily": {
+                      "display-hero-mobile": [
+                              "Kanit"
+                      ],
+                      "headline-lg": [
+                              "Kanit"
+                      ],
+                      "display-hero": [
+                              "Kanit"
+                      ],
+                      "body-lg": [
+                              "Kanit"
+                      ],
+                      "headline-lg-mobile": [
+                              "Kanit"
+                      ],
+                      "body-md": [
+                              "Kanit"
+                      ],
+                      "headline-md": [
+                              "Kanit"
+                      ],
+                      "label-caps": [
+                              "Kanit"
+                      ]
+              },
+              "fontSize": {
+                      "display-hero-mobile": [
+                              "56px",
+                              {
+                                      "lineHeight": "60px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "headline-lg": [
+                              "64px",
+                              {
+                                      "lineHeight": "72px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-hero": [
+                              "120px",
+                              {
+                                      "lineHeight": "110px",
+                                      "letterSpacing": "-0.04em",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "body-lg": [
+                              "20px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "300"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-caps": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body {
+            background-color: #0C0C0C;
+            color: #D7E2EA;
+        }
+        .bg-accent-gradient {
+            background-image: linear-gradient(123deg, #18011F 7%, #B600A8 37%, #7621B0 72%, #BE4C00 100%);
+        }
+        
+        .sticky-card {
+            position: sticky;
+            top: 120px;
+        }
+        
+        .glass-panel {
+            background-color: rgba(215, 226, 234, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(215, 226, 234, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        .glass-panel:hover {
+            box-shadow: 0 0 40px rgba(182, 0, 168, 0.15);
+            border-color: rgba(182, 0, 168, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .project-image-container {
+            overflow: hidden;
+        }
+
+        .project-image-container img {
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .glass-panel:hover .project-image-container img {
+            transform: scale(1.05);
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-content {
+            transform: translateY(20px);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-primary/30 selection:text-primary relative"><div class="cursor-dot fixed top-0 left-0 w-2 h-2 bg-primary rounded-full pointer-events-none z-[9999] transition-transform duration-100 ease-out"></div><div class="cursor-outline fixed top-0 left-0 w-8 h-8 border border-primary rounded-full pointer-events-none z-[9998] transition-transform duration-300 ease-out"></div>
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface-glass backdrop-blur-xl border-b border-border-subtle bg-surface/80" style="box-shadow: none;">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto"><a class="font-display-hero-mobile text-headline-md tracking-tighter transition-colors duration-300 text-text-primary" href="#">VANSH GUPTA</a><div class="hidden md:flex flex-grow justify-center"><a class="font-label-caps text-label-caps text-text-secondary hover:text-primary transition-colors tracking-[0.2em] font-bold uppercase" href="#"><br></a></div><div class="flex items-center gap-8"><a class="font-label-caps text-label-caps text-text-primary border-b-2 border-primary pb-1 tracking-[0.2em] font-bold uppercase" href="#">ABOUT</a></div></div>
+</nav>
+<main class="pt-[160px] pb-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Header -->
+<header class="mb-section-gap max-w-4xl">
+<h1 class="font-display-hero-mobile text-display-hero-mobile md:font-display-hero md:text-display-hero text-text-primary mb-6 tracking-tighter">Engineered Systems</h1>
+<p class="font-body-lg text-body-lg text-text-secondary max-w-2xl">
+                A showcase of applied artificial intelligence. From predictive models to autonomous agents, exploring the frontier of machine learning solutions.
+            </p>
+</header>
+<!-- Project Stacking Container -->
+<div class="relative space-y-[160px]">
+<!-- Project 1: AI-Powered Recruitment CRM -->
+<article class="sticky-card glass-panel rounded-2xl overflow-hidden md:h-[700px] flex flex-col-reverse md:flex-row group" style="top: 120px; z-index: 10;">
+<div class="p-8 md:p-12 md:w-[35%] flex flex-col justify-center bg-surface/80 backdrop-blur-md relative z-20 h-full border-r border-border-subtle/30">
+<span class="font-label-caps text-label-caps text-[#b600a8] mb-4 tracking-widest uppercase">crm</span>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg text-white mb-4 md:text-headline-md leading-tight">AI-Powered Recruitment CRM</h2>
+<p class="font-body-md text-body-md text-text-secondary mb-8 line-clamp-2">Built secure, role-based authentication for 200+ candidate profiles. Shipped dashboard analytics, payment/invoice, and recruiter modules.</p>
+<div class="flex gap-2 flex-wrap mb-8">
+<span class="px-3 py-1 bg-surface-container-high text-text-primary rounded-full font-body-md text-xs">Python</span>
+<span class="px-3 py-1 bg-surface-container-high text-text-primary rounded-full font-body-md text-xs">TensorFlow</span>
+<span class="px-3 py-1 bg-surface-container-high text-text-primary rounded-full font-body-md text-xs">FastAPI</span>
+</div>
+<ul class="space-y-3 mb-10 flex-grow">
+<li class="flex items-start gap-3 text-text-primary font-body-md text-sm">
+<span class="material-symbols-outlined text-[#b600a8] text-lg">check_circle</span>
+<span class="">40% reduction in time-to-hire.</span>
+</li>
+<li class="flex items-start gap-3 text-text-primary font-body-md text-sm">
+<span class="material-symbols-outlined text-[#b600a8] text-lg">check_circle</span>
+<span class="">65% improved match relevance.</span>
+</li>
+<li class="flex items-start gap-3 text-text-primary font-body-md text-sm">
+<span class="material-symbols-outlined text-[#b600a8] text-lg">check_circle</span>
+<span class="">10k+ profiles processed.</span>
+</li>
+</ul>
+<div class="flex flex-col gap-3 mt-auto">
+<button class="w-full px-6 py-4 bg-[#b600a8] hover:bg-[#830079] text-white rounded-xl font-label-caps text-sm transition-all shadow-[0_0_20px_rgba(182,0,168,0.3)] hover:shadow-[0_0_30px_rgba(182,0,168,0.5)] flex items-center justify-center gap-2 group/btn uppercase magnetic-btn" onclick="document.getElementById('modal-1').classList.add('active')">
+        VIEW CASE STUDY
+        <span class="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<button class="w-full px-6 py-4 border border-border-subtle hover:border-text-primary text-text-primary hover:text-white rounded-xl font-label-caps text-sm transition-all flex items-center justify-center gap-2 glass-panel uppercase magnetic-btn">
+        LIVE PROJECT
+    </button>
+</div>
+</div>
+<div class="md:w-[65%] h-72 md:h-full relative project-image-container bg-surface-container-lowest">
+<div class="absolute inset-0 bg-gradient-to-r from-surface/80 to-transparent z-10 md:hidden"></div>
+<img class="w-full h-full object-cover object-center" data-alt="A futuristic dashboard interface glowing with neon purple and blue accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBheUaML5l2wtqwIef6pu8_1EoBdTo8rECN944T227YrlQtnvO8QCEPWbNznbV8dC260q3JoTb1iNOjeGlaj1NQfrVKBX9kpgvcStmigNt_Ms_duMtjvYYFf15BD0lHnErvAJaf_RAelBYJMOnEMGg2OfUzJ60Lt_eZ_dxaL9QoVOO5jOwK2Q5OdjKBotFTITns08UwmXoqG3BGUmp3-HyjA2UwP9XQBmv587rnr3-zilbD_DR9o97reAPYdmvX8-dvA17TosbXWGRs">
+</div>
+</article>
+<!-- Project 2: YouTube Toxic Comment Analyzer -->
+<article class="sticky-card glass-panel rounded-2xl overflow-hidden md:h-[700px] flex flex-col-reverse md:flex-row group" style="top: 160px; z-index: 20;">
+<div class="p-8 md:p-12 md:w-[35%] flex flex-col justify-center bg-surface/80 backdrop-blur-md relative z-20 h-full border-r border-border-subtle/30">
+<span class="font-label-caps text-label-caps text-[#b600a8] mb-4 tracking-widest uppercase">Machine Learning</span>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg text-white mb-4 md:text-headline-md leading-tight">YouTube Toxic Comment Analyzer</h2>
+<p class="font-body-md text-body-md text-text-secondary mb-8 line-clamp-2">Classified toxic comments at ~89% accuracy with a modular TF-IDF pipeline. Pulled live comments via the YouTube Data API.</p>
+<div class="flex gap-2 flex-wrap mb-8">
+<span class="px-3 py-1 bg-surface-container-high text-text-primary rounded-full font-body-md text-xs">Python</span>
+<span class="px-3 py-1 bg-surface-container-high text-text-primary rounded-full font-body-md text-xs">HuggingFace</span>
+<span class="px-3 py-1 bg-surface-container-high text-text-primary rounded-full font-body-md text-xs">Streamlit</span>
+</div>
+<ul class="space-y-3 mb-10 flex-grow">
+<li class="flex items-start gap-3 text-text-primary font-body-md text-sm">
+<span class="material-symbols-outlined text-[#b600a8] text-lg">check_circle</span>
+<span class="">92% F1-score achieved.</span>
+</li>
+<li class="flex items-start gap-3 text-text-primary font-body-md text-sm">
+<span class="material-symbols-outlined text-[#b600a8] text-lg">check_circle</span>
+<span class="">Real-time inference setup.</span>
+</li>
+<li class="flex items-start gap-3 text-text-primary font-body-md text-sm">
+<span class="material-symbols-outlined text-[#b600a8] text-lg">check_circle</span>
+<span class="">Multi-vector classification.</span>
+</li>
+</ul>
+<div class="flex flex-col gap-3 mt-auto">
+<button class="w-full px-6 py-4 bg-[#b600a8] hover:bg-[#830079] text-white rounded-xl font-label-caps text-sm transition-all shadow-[0_0_20px_rgba(182,0,168,0.3)] hover:shadow-[0_0_30px_rgba(182,0,168,0.5)] flex items-center justify-center gap-2 group/btn uppercase magnetic-btn" onclick="document.getElementById('modal-2').classList.add('active')">
+        VIEW CASE STUDY
+        <span class="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<button class="w-full px-6 py-4 border border-border-subtle hover:border-text-primary text-text-primary hover:text-white rounded-xl font-label-caps text-sm transition-all flex items-center justify-center gap-2 glass-panel uppercase magnetic-btn">
+        LIVE DEMO
+    </button>
+</div>
+</div>
+<div class="md:w-[65%] h-72 md:h-full relative project-image-container bg-surface-container-lowest">
+<div class="absolute inset-0 bg-gradient-to-r from-surface/80 to-transparent z-10 md:hidden"></div>
+<img class="w-full h-full object-cover object-center" data-alt="Abstract digital art representing sentiment analysis" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8Cd0u5OT7ULU9CM9cgM7vZM5ze8PyrkA4AETLSuuGXd7tYv6fD5zR62s_7pP6K6pLK2KuAlh4nlCTROjKrdvGrPjirBRsob__bvpnbA1TRO7GOjGxg8dhvmfQA0V1q1Exia-mEodaANEE8ByzyRJdjlW02hrPYwKDb3p_PgsmmzVNPyBdtAfSgcEvcDEP8k3XJDWk0SAvTJV9uR3qFXsBhacxat_HDwhH3ykxGcig-CHVO4hsLuBIM2ZPcBT5KHi6zSdfCIZ3vc_S">
+</div>
+</article>
+<!-- Project 3: Resume Feedback Chatbot -->
+<article class="sticky-card glass-panel rounded-2xl overflow-hidden md:h-[700px] flex flex-col-reverse md:flex-row group" style="top: 200px; z-index: 30;">
+<div class="p-8 md:p-12 md:w-[35%] flex flex-col justify-center bg-surface/80 backdrop-blur-md relative z-20 h-full border-r border-border-subtle/30">
+<span class="font-label-caps text-label-caps text-[#b600a8] mb-4 tracking-widest uppercase">NLP</span>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg text-white mb-4 md:text-headline-md leading-tight">Resume Feedback Chatbot</h2>
+<p class="font-body-md text-body-md text-text-secondary mb-8 line-clamp-2">Generated structured resume feedback by combining ML classification with LLM prompting. Built PDF parsing interface.</p>
+<div class="flex gap-2 flex-wrap mb-8">
+<span class="px-3 py-1 bg-surface-container-high text-text-primary rounded-full font-body-md text-xs">LangChain</span>
+<span class="px-3 py-1 bg-surface-container-high text-text-primary rounded-full font-body-md text-xs">OpenAI API</span>
+<span class="px-3 py-1 bg-surface-container-high text-text-primary rounded-full font-body-md text-xs">React</span>
+</div>
+<ul class="space-y-3 mb-10 flex-grow">
+<li class="flex items-start gap-3 text-text-primary font-body-md text-sm">
+<span class="material-symbols-outlined text-[#b600a8] text-lg">check_circle</span>
+<span class="">5,000+ beta queries processed.</span>
+</li>
+<li class="flex items-start gap-3 text-text-primary font-body-md text-sm">
+<span class="material-symbols-outlined text-[#b600a8] text-lg">check_circle</span>
+<span class="">30% increase in call-backs.</span>
+</li>
+<li class="flex items-start gap-3 text-text-primary font-body-md text-sm">
+<span class="material-symbols-outlined text-[#b600a8] text-lg">check_circle</span>
+<span class="">Context-aware PDF analysis.</span>
+</li>
+</ul>
+<div class="flex flex-col gap-3 mt-auto">
+<button class="w-full px-6 py-4 bg-[#b600a8] hover:bg-[#830079] text-white rounded-xl font-label-caps text-sm transition-all shadow-[0_0_20px_rgba(182,0,168,0.3)] hover:shadow-[0_0_30px_rgba(182,0,168,0.5)] flex items-center justify-center gap-2 group/btn uppercase magnetic-btn" onclick="document.getElementById('modal-3').classList.add('active')">
+        VIEW CASE STUDY
+        <span class="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<button class="w-full px-6 py-4 border border-border-subtle hover:border-text-primary text-text-primary hover:text-white rounded-xl font-label-caps text-sm transition-all flex items-center justify-center gap-2 glass-panel uppercase magnetic-btn">
+        LIVE PROJECT
+    </button>
+</div>
+</div>
+<div class="md:w-[65%] h-72 md:h-full relative project-image-container bg-surface-container-lowest">
+<div class="absolute inset-0 bg-gradient-to-r from-surface/80 to-transparent z-10 md:hidden"></div>
+<img class="w-full h-full object-cover object-center" data-alt="A minimalist, high-end chat interface glowing on a dark glass screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1GtKpsjC62EoJiCHUnU0wcz_dzjT2MOu7Yc1wnJVcMneq8jxuzakhoKaUCXFbgz6Wm6ED1ryDxAyE6QFcE-PBrrmKXYA3tDTL_GImU62JMTbCLTCcX00i5acliM6_cO78VV-r6XUo3PU96LQSGWUjXIoyWpxhn1LZ1Fec1YTnu6fS3AOdqHk6sGzJgdmt-NbvZf34y3uENF9KvNR1xuMLWDWUFnheI_jnlkhrdZbg-D4zqAAOB3v-aopkBONji6WhtcSShOLtReW4">
+</div>
+</article>
+<!-- Project 4: Movie Recommendation & Sentiment Analyzer -->
+<article class="sticky-card glass-panel rounded-2xl overflow-hidden md:h-[700px] flex flex-col-reverse md:flex-row group" style="top: 240px; z-index: 40;">
+<div class="p-8 md:p-12 md:w-[35%] flex flex-col justify-center bg-surface/80 backdrop-blur-md relative z-20 h-full border-r border-border-subtle/30">
+<span class="font-label-caps text-label-caps text-[#b600a8] mb-4 tracking-widest uppercase">Recommendations</span>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg text-white mb-4 md:text-headline-md leading-tight">Movie Recommendation System</h2>
+<p class="font-body-md text-body-md text-text-secondary mb-8 line-clamp-2">Built a content-based recommender over 5,000+ titles. Layered sentiment analysis and shipped an interactive interface.</p>
+<div class="flex gap-2 flex-wrap mb-8">
+<span class="px-3 py-1 bg-surface-container-high text-text-primary rounded-full font-body-md text-xs">Python</span>
+<span class="px-3 py-1 bg-surface-container-high text-text-primary rounded-full font-body-md text-xs">NLP</span>
+<span class="px-3 py-1 bg-surface-container-high text-text-primary rounded-full font-body-md text-xs">Streamlit</span>
+</div>
+<ul class="space-y-3 mb-10 flex-grow">
+<li class="flex items-start gap-3 text-text-primary font-body-md text-sm">
+<span class="material-symbols-outlined text-[#b600a8] text-lg">check_circle</span>
+<span class="">15% improvement in RMSE.</span>
+</li>
+<li class="flex items-start gap-3 text-text-primary font-body-md text-sm">
+<span class="material-symbols-outlined text-[#b600a8] text-lg">check_circle</span>
+<span class="">Hybrid filtering implemented.</span>
+</li>
+<li class="flex items-start gap-3 text-text-primary font-body-md text-sm">
+<span class="material-symbols-outlined text-[#b600a8] text-lg">check_circle</span>
+<span class="">Sentiment engine integrated.</span>
+</li>
+</ul>
+<div class="flex flex-col gap-3 mt-auto">
+<button class="w-full px-6 py-4 bg-[#b600a8] hover:bg-[#830079] text-white rounded-xl font-label-caps text-sm transition-all shadow-[0_0_20px_rgba(182,0,168,0.3)] hover:shadow-[0_0_30px_rgba(182,0,168,0.5)] flex items-center justify-center gap-2 group/btn uppercase magnetic-btn" onclick="document.getElementById('modal-4').classList.add('active')">
+        VIEW CASE STUDY
+        <span class="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<button class="w-full px-6 py-4 border border-border-subtle hover:border-text-primary text-text-primary hover:text-white rounded-xl font-label-caps text-sm transition-all flex items-center justify-center gap-2 glass-panel uppercase magnetic-btn">
+        LIVE PROJECT
+    </button>
+</div>
+</div>
+<div class="md:w-[65%] h-72 md:h-full relative project-image-container bg-surface-container-lowest">
+<div class="absolute inset-0 bg-gradient-to-r from-surface/80 to-transparent z-10 md:hidden"></div>
+<img class="w-full h-full object-cover object-center" data-alt="A sophisticated data visualization of movie posters" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3GyoXaxE-k4u3rTLyHIFyeb8uhUZhCy-aYbAl8HMDgORV8suJ1S-H426fgwewxN_H8Pj4m8xGaSGhM3jc8PQPVS4UO7-6wdNRd4EgYm-O_lRTjAVOwwsnHmcINy9Oz7nPCRHNf2CRlChoZmRcshaEYm3Lhq__CfUz2ATNxeXyNRILCHzkhxdi3azxGLEsTE1RG4nzGoonsXlmkZ_AZaASX_zL9BMuLXosuElurAlEra21OVVgcb8rWQiPQihHzxKz45aJ89mW4ihr">
+</div>
+</article>
+<!-- Project 5: Amazon Sales Analysis Dashboard -->
+<article class="sticky-card glass-panel rounded-2xl overflow-hidden md:h-[700px] flex flex-col-reverse md:flex-row group" style="top: 280px; z-index: 50;">
+<div class="p-8 md:p-12 md:w-[35%] flex flex-col justify-center bg-surface/80 backdrop-blur-md relative z-20 h-full border-r border-border-subtle/30">
+<span class="font-label-caps text-label-caps text-[#b600a8] mb-4 tracking-widest uppercase">Data Analytics</span>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg text-white mb-4 md:text-headline-md leading-tight">Amazon Sales Intelligence</h2>
+<p class="font-body-md text-body-md text-text-secondary mb-8 line-clamp-2">Comprehensive data cleaning &amp; EDA pipeline. Interactive region-wise KPI visualizations and real-time tracking.</p>
+<div class="flex gap-2 flex-wrap mb-8">
+<span class="px-3 py-1 bg-surface-container-high text-text-primary rounded-full font-body-md text-xs">Python</span>
+<span class="px-3 py-1 bg-surface-container-high text-text-primary rounded-full font-body-md text-xs">Pandas</span>
+<span class="px-3 py-1 bg-surface-container-high text-text-primary rounded-full font-body-md text-xs">SQL</span>
+</div>
+<ul class="space-y-3 mb-10 flex-grow">
+<li class="flex items-start gap-3 text-text-primary font-body-md text-sm">
+<span class="material-symbols-outlined text-[#b600a8] text-lg">check_circle</span>
+<span class="">Cleaned &amp; processed data.</span>
+</li>
+<li class="flex items-start gap-3 text-text-primary font-body-md text-sm">
+<span class="material-symbols-outlined text-[#b600a8] text-lg">check_circle</span>
+<span class="">Interactive visualizations.</span>
+</li>
+<li class="flex items-start gap-3 text-text-primary font-body-md text-sm">
+<span class="material-symbols-outlined text-[#b600a8] text-lg">check_circle</span>
+<span class="">Real-time KPI tracking.</span>
+</li>
+</ul>
+<div class="flex flex-col gap-3 mt-auto">
+<button class="w-full px-6 py-4 bg-[#b600a8] hover:bg-[#830079] text-white rounded-xl font-label-caps text-sm transition-all shadow-[0_0_20px_rgba(182,0,168,0.3)] hover:shadow-[0_0_30px_rgba(182,0,168,0.5)] flex items-center justify-center gap-2 group/btn uppercase magnetic-btn" onclick="document.getElementById('modal-5').classList.add('active')">
+        VIEW CASE STUDY
+        <span class="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<button class="w-full px-6 py-4 border border-border-subtle hover:border-text-primary text-text-primary hover:text-white rounded-xl font-label-caps text-sm transition-all flex items-center justify-center gap-2 glass-panel uppercase magnetic-btn">
+        LIVE PROJECT
+    </button>
+</div>
+</div>
+<div class="md:w-[65%] h-72 md:h-full relative project-image-container bg-surface-container-lowest">
+<div class="absolute inset-0 bg-gradient-to-r from-surface/80 to-transparent z-10 md:hidden"></div>
+<img class="w-full h-full object-cover object-center" data-alt="A sleek, modern business intelligence dashboard UI for Amazon sales analysis." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8f3ZEprFeU6kBZbLoEaI0tTQ_JXcCgPSHpKKz4PhyuVr-13XKB6D13wBzy9Cs-Ryv_FI6GSgz4gMEYshUTEmdkusbXx_EztKccPFlNoRnUGUp8X-KWE4SU6h1L6Jh7FLI_pfSK22Bm7yOD6Ho8z_bBpa_KkqG3dchUgosbKdqFFTBHrpGE1zhRsDJn9WDLOjHvswoQWuJZ43VIU8jGS8Mummt0wQiOXIx0OM_Bh4241tIQRBGNIFP8KXf-iiDRzT9wAvs88csy7A_">
+</div>
+</article>
+</div>
+</main>
+<!-- Modals -->
+<div class="fixed inset-0 z-[100] modal-overlay flex items-center justify-center p-4 sm:p-6" id="modal-1">
+<div class="absolute inset-0 bg-background/90 backdrop-blur-sm" onclick="this.parentElement.classList.remove('active')"></div>
+<div class="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-surface border border-border-subtle rounded-2xl shadow-2xl modal-content flex flex-col">
+<div class="p-6 border-b border-border-subtle flex justify-between items-center sticky top-0 bg-surface/95 backdrop-blur-sm z-10">
+<h3 class="font-headline-md text-xl text-white">AI-Powered Recruitment CRM Case Study</h3>
+<button class="text-text-secondary hover:text-white" onclick="document.getElementById('modal-1').classList.remove('active')"><span class="material-symbols-outlined">close</span></button>
+</div>
+<div class="p-8 space-y-8">
+<div>
+<h4 class="font-label-caps text-[#b600a8] mb-2">Problem</h4>
+<p class="font-body-md text-text-primary">High volume of unstructured resume data leading to slow candidate matching and pipeline bottlenecks.</p>
+</div>
+<div>
+<h4 class="font-label-caps text-[#b600a8] mb-2">Solution</h4>
+<p class="font-body-md text-text-primary">Developed an NLP-driven entity extraction pipeline to normalize candidate profiles and implemented semantic search for instant matching.</p>
+</div>
+<div>
+<h4 class="font-label-caps text-[#b600a8] mb-2">Results</h4>
+<p class="font-body-md text-text-primary">Reduced time-to-hire by 40% and improved match relevance score by 65% across 10k+ profiles.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed inset-0 z-[100] modal-overlay flex items-center justify-center p-4 sm:p-6" id="modal-2">
+<div class="absolute inset-0 bg-background/90 backdrop-blur-sm" onclick="this.parentElement.classList.remove('active')"></div>
+<div class="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-surface border border-border-subtle rounded-2xl shadow-2xl modal-content flex flex-col">
+<div class="p-6 border-b border-border-subtle flex justify-between items-center sticky top-0 bg-surface/95 backdrop-blur-sm z-10">
+<h3 class="font-headline-md text-xl text-white">YouTube Toxic Comment Analyzer Case Study</h3>
+<button class="text-text-secondary hover:text-white" onclick="document.getElementById('modal-2').classList.remove('active')"><span class="material-symbols-outlined">close</span></button>
+</div>
+<div class="p-8 space-y-8">
+<div>
+<h4 class="font-label-caps text-[#b600a8] mb-2">Problem</h4>
+<p class="font-body-md text-text-primary">Content creators struggle to moderate large volumes of comments, leading to unmanaged toxic environments.</p>
+</div>
+<div>
+<h4 class="font-label-caps text-[#b600a8] mb-2">Solution</h4>
+<p class="font-body-md text-text-primary">Fine-tuned a transformer model (RoBERTa) to classify comments across multiple toxicity vectors, wrapped in an interactive Streamlit dashboard.</p>
+</div>
+<div>
+<h4 class="font-label-caps text-[#b600a8] mb-2">Results</h4>
+<p class="font-body-md text-text-primary">Achieved 92% F1-score on benchmark datasets with real-time inference processing 100 comments/sec.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed inset-0 z-[100] modal-overlay flex items-center justify-center p-4 sm:p-6" id="modal-3">
+<div class="absolute inset-0 bg-background/90 backdrop-blur-sm" onclick="this.parentElement.classList.remove('active')"></div>
+<div class="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-surface border border-border-subtle rounded-2xl shadow-2xl modal-content flex flex-col">
+<div class="p-6 border-b border-border-subtle flex justify-between items-center sticky top-0 bg-surface/95 backdrop-blur-sm z-10">
+<h3 class="font-headline-md text-xl text-white">Resume Feedback Chatbot Case Study</h3>
+<button class="text-text-secondary hover:text-white" onclick="document.getElementById('modal-3').classList.remove('active')"><span class="material-symbols-outlined">close</span></button>
+</div>
+<div class="p-8 space-y-8">
+<div>
+<h4 class="font-label-caps text-[#b600a8] mb-2">Problem</h4>
+<p class="font-body-md text-text-primary">Job seekers lack immediate, personalized, and actionable feedback on their resumes prior to submission.</p>
+</div>
+<div>
+<h4 class="font-label-caps text-[#b600a8] mb-2">Solution</h4>
+<p class="font-body-md text-text-primary">Architected an LLM-based conversational agent using LangChain to analyze uploaded PDFs against targeted job descriptions.</p>
+</div>
+<div>
+<h4 class="font-label-caps text-[#b600a8] mb-2">Results</h4>
+<p class="font-body-md text-text-primary">Successfully processed over 5,000 queries during beta, with users reporting a 30% increase in interview call-backs.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed inset-0 z-[100] modal-overlay flex items-center justify-center p-4 sm:p-6" id="modal-4">
+<div class="absolute inset-0 bg-background/90 backdrop-blur-sm" onclick="this.parentElement.classList.remove('active')"></div>
+<div class="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-surface border border-border-subtle rounded-2xl shadow-2xl modal-content flex flex-col">
+<div class="p-6 border-b border-border-subtle flex justify-between items-center sticky top-0 bg-surface/95 backdrop-blur-sm z-10">
+<h3 class="font-headline-md text-xl text-white">Movie Recommendation &amp; Sentiment Analyzer Case Study</h3>
+<button class="text-text-secondary hover:text-white" onclick="document.getElementById('modal-4').classList.remove('active')"><span class="material-symbols-outlined">close</span></button>
+</div>
+<div class="p-8 space-y-8">
+<div>
+<h4 class="font-label-caps text-[#b600a8] mb-2">Problem</h4>
+<p class="font-body-md text-text-primary">Generic recommendation algorithms fail to capture nuanced user preferences and sentiment from reviews.</p>
+</div>
+<div>
+<h4 class="font-label-caps text-[#b600a8] mb-2">Solution</h4>
+<p class="font-body-md text-text-primary">Engineered a hybrid filtering system combining collaborative filtering with NLP-based sentiment analysis of user reviews.</p>
+</div>
+<div>
+<h4 class="font-label-caps text-[#b600a8] mb-2">Results</h4>
+<p class="font-body-md text-text-primary">Improved recommendation accuracy metric (RMSE) by 15% compared to baseline collaborative filtering models.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed inset-0 z-[100] modal-overlay flex items-center justify-center p-4 sm:p-6" id="modal-5">
+<div class="absolute inset-0 bg-background/90 backdrop-blur-sm" onclick="this.parentElement.classList.remove('active')"></div>
+<div class="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-surface border border-border-subtle rounded-2xl shadow-2xl modal-content flex flex-col">
+<div class="p-6 border-b border-border-subtle flex justify-between items-center sticky top-0 bg-surface/95 backdrop-blur-sm z-10">
+<h3 class="font-headline-md text-xl text-white">Amazon Sales Analysis Dashboard Case Study</h3>
+<button class="text-text-secondary hover:text-white" onclick="document.getElementById('modal-5').classList.remove('active')"><span class="material-symbols-outlined">close</span></button>
+</div>
+<div class="p-8 space-y-8">
+<p class="font-body-md text-text-primary">An interactive business intelligence dashboard built using Python and Streamlit to analyze Amazon sales data. The project includes data cleaning, exploratory data analysis, KPI visualization, sales trend analysis, product performance tracking, and region-wise insights, enabling data-driven business decisions.</p>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="bg-surface border-t border-border-subtle w-full relative bottom-0 py-20">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop w-full max-w-container-max mx-auto gap-gutter">
+<div class="font-headline-md text-headline-md text-on-surface">VANSH GUPTA</div>
+<div class="flex gap-6 flex-wrap justify-center">
+<a class="font-label-caps text-label-caps text-text-secondary hover:text-primary transition-colors duration-300" href="#">GITHUB</a>
+<a class="font-label-caps text-label-caps text-text-secondary hover:text-primary transition-colors duration-300" href="#">LINKEDIN</a>
+<a class="font-label-caps text-label-caps text-text-secondary hover:text-primary transition-colors duration-300" href="#">EMAIL</a>
+
+</div>
+<div class="font-body-md text-body-md text-text-secondary text-center md:text-right">
+                © 2024 VANSH GUPTA. ARCHITECTING INTELLIGENCE.
+            </div>
+</div>
+</footer>
+<script>
+    // Close modals on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.modal-overlay').forEach(modal => modal.classList.remove('active'));
+        }
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>
