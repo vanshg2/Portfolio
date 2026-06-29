@@ -188,11 +188,11 @@
             transform-origin: top center;
         }
 
-        /* Footer: always fully opaque, never let sticky cards show through */
+        /* Footer: translucent surface to match the rest of the site */
         footer {
-            background: #0C0C0C !important;
-            backdrop-filter: none !important;
-            -webkit-backdrop-filter: none !important;
+            background: rgba(19, 19, 19, 0.78) !important;
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
             position: relative;
             z-index: 9000;
         }
@@ -3341,7 +3341,7 @@
 </div>
 </div>
 <!-- Footer -->
-<footer class="border-t border-border-subtle w-full py-6" style="position:relative;z-index:9000;background:#0C0C0C !important;backdrop-filter:none !important;-webkit-backdrop-filter:none !important;isolation:isolate;">
+<footer class="border-t border-border-subtle w-full py-6" style="position:relative;z-index:9000;background:rgba(19,19,19,0.78) !important;backdrop-filter:blur(20px) !important;-webkit-backdrop-filter:blur(20px) !important;isolation:isolate;">
 <div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop w-full max-w-container-max mx-auto gap-gutter">
 <div class="font-headline-md text-headline-md text-on-surface">VANSH GUPTA</div>
 <div class="flex gap-6 flex-wrap justify-center">
