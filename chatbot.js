@@ -388,16 +388,20 @@ RESPONSE RULES:
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             contents: contents,
-            systemInstruction: SYSTEM_PROMPT
+            systemInstruction: {
+              parts: [{ text: SYSTEM_PROMPT }]
+            }
           }),
         });
       }
 
       if (!res.ok) {
-        if (res.status === 404 && (location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
+        const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+        if (isLocal) {
           return promptForKeyAndResend();
         }
-        throw new Error(`API returned status ${res.status}`);
+        const errData = await res.json().catch(() => ({}));
+        throw new Error(errData.error || `API returned status ${res.status}`);
       }
 
       const data = await res.json();
