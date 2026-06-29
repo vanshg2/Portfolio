@@ -187,6 +187,15 @@
             transition: opacity 0.75s cubic-bezier(0.4,0,0.2,1), transform 0.75s cubic-bezier(0.4,0,0.2,1);
             transform-origin: top center;
         }
+
+        /* Footer: always fully opaque, never let sticky cards show through */
+        footer {
+            background: #0C0C0C !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            position: relative;
+            z-index: 9000;
+        }
         .sticky-card.from-left  { transform: translateX(-60px) translateY(20px) scale(1); }
         .sticky-card.from-right { transform: translateX( 60px) translateY(20px) scale(1); }
         .sticky-card.visible {
@@ -399,7 +408,7 @@
 </script><div class="cursor-dot" style="position:fixed;top:0;left:0;width:8px;height:8px;background:#D7E2EA;border-radius:50%;pointer-events:none;z-index:9999;will-change:transform;"></div><div class="cursor-outline" style="position:fixed;top:0;left:0;width:32px;height:32px;border:1px solid rgba(215,226,234,0.5);border-radius:50%;pointer-events:none;z-index:9998;will-change:transform;"></div>
 <!-- TopNavBar -->
 
-<main class="pt-[100px] pb-16 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto" style="position:relative;z-index:1;isolation:isolate;">
+<main class="pt-[100px] px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto" style="position:relative;z-index:1;isolation:isolate;padding-bottom:clamp(120px,20vw,280px);">
 <!-- Header -->
 <header class="mb-12 max-w-4xl">
 <h1 class="font-display-hero-mobile text-display-hero-mobile md:font-display-hero md:text-display-hero text-text-primary mb-6 tracking-tighter">Engineered Systems</h1>
@@ -408,7 +417,7 @@
             </p>
 </header>
 <!-- Project Stacking Container -->
-<div class="relative space-y-8" style="padding-bottom:160px;">
+<div class="relative space-y-8" style="padding-bottom:600px;">
 <!-- Project 1: AI-Powered Recruitment CRM -->
 <article class="sticky-card glass-panel rounded-2xl overflow-hidden group relative z-20" style="top: 120px; z-index: 10;" aria-label="AI-Powered Recruitment CRM project">
 <div class="project-card-inner">
@@ -3332,7 +3341,7 @@
 </div>
 </div>
 <!-- Footer -->
-<footer class="bg-surface border-t border-border-subtle w-full py-6" style="position:relative;z-index:200;isolation:isolate;">
+<footer class="border-t border-border-subtle w-full py-6" style="position:relative;z-index:9000;background:#0C0C0C !important;backdrop-filter:none !important;-webkit-backdrop-filter:none !important;isolation:isolate;">
 <div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop w-full max-w-container-max mx-auto gap-gutter">
 <div class="font-headline-md text-headline-md text-on-surface">VANSH GUPTA</div>
 <div class="flex gap-6 flex-wrap justify-center">
