@@ -1,6 +1,7 @@
 <!DOCTYPE html><html class="dark scroll-smooth" lang="en" style=""><head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta name="description" content="Vansh Gupta – AI/ML Engineer & Data Scientist. Portfolio showcasing machine learning projects, NLP, and generative AI.">
 <title>Vansh Gupta | AI/ML Engineer</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
@@ -152,6 +153,22 @@
             background: linear-gradient(90deg, #B600A8, #7621B0, #BE4C00);
             z-index: 10000;
         }
+
+        /* Accessibility: keyboard focus states */
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid #ffaceb;
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+
+        /* Accessibility: reduce motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
     </style>
 </head>
 <body class="text-text-primary antialiased font-body-md overflow-x-hidden" style="padding-top:72px;">
@@ -194,13 +211,13 @@
   .bg-gradient-custom { background: linear-gradient(123deg, #18011F 7%, #B600A8 37%, #7621B0 72%, #BE4C00 100%); }
 </style>
 <nav id="main-nav" style="position:fixed;top:0;width:100%;z-index:9999;background:rgba(19,19,19,0.9);backdrop-filter:blur(20px);border-bottom:1px solid rgba(215,226,234,0.15);">
-  <div style="display:flex;justify-content:space-between;align-items:center;max-width:1440px;margin:0 auto;padding:16px 80px;">
-    <a href="index.html" style="font-family:Kanit,sans-serif;font-size:24px;font-weight:700;color:#D7E2EA;text-decoration:none;letter-spacing:0.1em;text-transform:uppercase;">VANSH GUPTA</a>
-    <div style="display:flex;gap:32px;align-items:center;">
-      <a class="nav-link" href="index.html" data-page="index.html" style="font-family:Kanit,sans-serif;font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(215,226,234,0.6);text-decoration:none;padding-bottom:4px;transition:color 0.3s;">HOME</a>
-      <a class="nav-link" href="projects.html" data-page="projects.html" style="font-family:Kanit,sans-serif;font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(215,226,234,0.6);text-decoration:none;padding-bottom:4px;transition:color 0.3s;">PROJECTS</a>
-      <a class="nav-link" href="about.html" data-page="about.html" style="font-family:Kanit,sans-serif;font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(215,226,234,0.6);text-decoration:none;padding-bottom:4px;transition:color 0.3s;">ABOUT</a>
-      <a href="mailto:vanshgpt2911@gmail.com" style="font-family:Kanit,sans-serif;font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#fff;text-decoration:none;background:linear-gradient(123deg,#18011F 7%,#B600A8 37%,#7621B0 72%,#BE4C00 100%);padding:10px 22px;border-radius:4px;transition:opacity 0.3s;">CONTACT</a>
+  <div style="display:flex;justify-content:space-between;align-items:center;max-width:1440px;margin:0 auto;padding:16px clamp(16px,5vw,80px);">
+    <a href="index.html" style="font-family:Kanit,sans-serif;font-size:clamp(16px,2vw,24px);font-weight:700;color:#D7E2EA;text-decoration:none;letter-spacing:0.1em;text-transform:uppercase;">VANSH GUPTA</a>
+    <div style="display:flex;gap:clamp(12px,2vw,32px);align-items:center;flex-wrap:nowrap;">
+      <a class="nav-link" href="index.html" data-page="index.html" style="font-family:Kanit,sans-serif;font-size:clamp(10px,1.2vw,13px);font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(215,226,234,0.6);text-decoration:none;padding-bottom:4px;transition:color 0.3s;white-space:nowrap;">HOME</a>
+      <a class="nav-link" href="projects.html" data-page="projects.html" style="font-family:Kanit,sans-serif;font-size:clamp(10px,1.2vw,13px);font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(215,226,234,0.6);text-decoration:none;padding-bottom:4px;transition:color 0.3s;white-space:nowrap;">PROJECTS</a>
+      <a class="nav-link" href="about.html" data-page="about.html" style="font-family:Kanit,sans-serif;font-size:clamp(10px,1.2vw,13px);font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(215,226,234,0.6);text-decoration:none;padding-bottom:4px;transition:color 0.3s;white-space:nowrap;">ABOUT</a>
+      <a href="mailto:vanshgpt2911@gmail.com" style="font-family:Kanit,sans-serif;font-size:clamp(10px,1.2vw,13px);font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#fff;text-decoration:none;background:linear-gradient(123deg,#18011F 7%,#B600A8 37%,#7621B0 72%,#BE4C00 100%);padding:8px clamp(10px,1.5vw,22px);border-radius:4px;transition:opacity 0.3s;white-space:nowrap;">CONTACT</a>
     </div>
   </div>
 </nav>
@@ -460,12 +477,22 @@
       </p>
     </div>
 
-    <!-- CTA -->
-    <div class="hero-fade-5">
+    <!-- CTAs -->
+    <div class="hero-fade-5" style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;">
+      <!-- Primary: View Projects -->
       <a class="resume-btn magnetic-btn"
+         href="projects.html"
+         style="transform:translate(0,0) scale(1);">
+        <span class="material-symbols-outlined" style="font-size:18px">rocket_launch</span>
+        View Projects
+      </a>
+      <!-- Secondary: Download Resume -->
+      <a class="magnetic-btn"
          href="https://docs.google.com/document/d/17CQBw8CP6h2mWhEREGj6s06GiPiPKYyJHTklD0N8B98/export?format=pdf"
          target="_blank" rel="noopener noreferrer"
-         style="transform:translate(0,0) scale(1);">
+         style="transform:translate(0,0) scale(1);display:inline-flex;align-items:center;gap:10px;background:transparent;color:#D7E2EA;font-family:Kanit,sans-serif;font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;padding:13px 28px;border-radius:6px;border:1px solid rgba(215,226,234,0.3);transition:border-color 0.25s,background 0.25s,transform 0.25s,box-shadow 0.25s;backdrop-filter:blur(8px);"
+         onmouseover="this.style.borderColor='rgba(182,0,168,0.6)';this.style.background='rgba(182,0,168,0.08)';this.style.transform='translateY(-2px) scale(1.03)';"
+         onmouseout="this.style.borderColor='rgba(215,226,234,0.3)';this.style.background='transparent';this.style.transform='translate(0,0) scale(1)';">
         <span class="material-symbols-outlined" style="font-size:18px">download</span>
         Download Resume
       </a>
