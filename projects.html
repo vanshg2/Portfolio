@@ -181,11 +181,14 @@
         }
         
         .sticky-card {
-            position: sticky;
-            top: 120px;
             opacity: 0;
+            transform: translateY(30px);
             transition: opacity 0.75s cubic-bezier(0.4,0,0.2,1), transform 0.75s cubic-bezier(0.4,0,0.2,1);
-            transform-origin: top center;
+        }
+
+        .sticky-card.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Footer: translucent surface to match the rest of the site */
@@ -195,13 +198,6 @@
             -webkit-backdrop-filter: blur(20px) !important;
             position: relative;
             z-index: 9000;
-        }
-        .sticky-card.from-left  { transform: translateX(-60px) translateY(20px) scale(1); }
-        .sticky-card.from-right { transform: translateX( 60px) translateY(20px) scale(1); }
-        .sticky-card.visible {
-            opacity: 1;
-            transform: translateX(0) translateY(0) scale(1);
-            transition: opacity 0.75s cubic-bezier(0.4,0,0.2,1), transform 0.1s ease, filter 0.1s ease;
         }
         
         .glass-panel {
@@ -229,68 +225,39 @@
             transform: scale(1.05);
         }
 
-        /* Two-column card layout */
-        .project-card-inner {
+        /* Project grid container */
+        .project-card-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0;
-            min-height: 0;
-            height: 100%;
-        }
-        @media (max-width: 900px) {
-            .project-card-inner {
-                grid-template-columns: 1fr;
-            }
-            .project-visual-panel {
-                display: none;
-            }
-        }
-
-        /* Right-side visual panel */
-        .project-visual-panel {
-            position: relative;
-            border-left: 1px solid rgba(215, 226, 234, 0.1);
-            background: rgba(215, 226, 234, 0.02);
-            border-radius: 0 1rem 1rem 0;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 280px;
-        }
-
-        .project-visual-panel .visual-bg-glow {
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-        }
-
-        .project-visual-panel .visual-mockup {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
             position: relative;
             z-index: 1;
-            width: 85%;
-            max-width: 340px;
+        }
+        @media (max-width: 1024px) {
+            .project-card-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
         }
 
-        /* SVG mockup screens */
-        .screen-chrome {
-            background: rgba(215,226,234,0.06);
-            border: 1px solid rgba(215,226,234,0.15);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        .screen-chrome .chrome-bar {
-            background: rgba(215,226,234,0.08);
-            padding: 6px 10px;
+        /* Compact text-based card content */
+        .project-card-inner {
             display: flex;
-            align-items: center;
-            gap: 5px;
-            border-bottom: 1px solid rgba(215,226,234,0.1);
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
         }
-        .chrome-dot { width:7px;height:7px;border-radius:50%; }
-        .screen-chrome .chrome-body {
-            padding: 14px;
-        }
+
+        
+
+        
+
+        
+
+        
+        
+        
+        
 
         /* Modal Styles */
         .modal-overlay {
@@ -417,9 +384,9 @@
             </p>
 </header>
 <!-- Project Stacking Container -->
-<div class="relative space-y-8" style="padding-bottom:600px;">
+<div class="project-card-grid">
 <!-- Project 1: AI-Powered Recruitment CRM -->
-<article class="sticky-card glass-panel rounded-2xl overflow-hidden group relative z-20" style="top: 120px; z-index: 10;" aria-label="AI-Powered Recruitment CRM project">
+<article class="sticky-card glass-panel rounded-2xl overflow-hidden group relative z-20" aria-label="AI-Powered Recruitment CRM project">
 <div class="project-card-inner">
   <!-- Left: Content -->
   <div class="flex flex-col justify-between p-5 md:p-7">
@@ -472,72 +439,10 @@
     </div>
   </div>
   <!-- Right: Visual Panel -->
-  <div class="project-visual-panel">
-    <div class="visual-bg-glow" style="background:radial-gradient(ellipse at 60% 50%, rgba(182,0,168,0.12) 0%, transparent 70%);"></div>
-    <div class="visual-mockup">
-      <div class="screen-chrome">
-        <div class="chrome-bar">
-          <div class="chrome-dot" style="background:#ff5f57;"></div>
-          <div class="chrome-dot" style="background:#febc2e;"></div>
-          <div class="chrome-dot" style="background:#28c840;"></div>
-          <div style="flex:1;height:14px;background:rgba(215,226,234,0.06);border-radius:3px;margin-left:8px;"></div>
-        </div>
-        <div class="chrome-body" style="display:flex;gap:10px;">
-          <!-- Sidebar -->
-          <div style="width:36%;display:flex;flex-direction:column;gap:6px;">
-            <div style="padding:6px 8px;background:rgba(182,0,168,0.2);border-radius:5px;border-left:2px solid #b600a8;">
-              <div style="height:7px;background:rgba(215,226,234,0.6);border-radius:3px;width:70%;"></div>
-            </div>
-            <div style="padding:6px 8px;border-radius:5px;"><div style="height:6px;background:rgba(215,226,234,0.18);border-radius:3px;width:80%;"></div></div>
-            <div style="padding:6px 8px;border-radius:5px;"><div style="height:6px;background:rgba(215,226,234,0.18);border-radius:3px;width:60%;"></div></div>
-            <div style="padding:6px 8px;border-radius:5px;"><div style="height:6px;background:rgba(215,226,234,0.18);border-radius:3px;width:75%;"></div></div>
-            <div style="padding:6px 8px;border-radius:5px;"><div style="height:6px;background:rgba(215,226,234,0.18);border-radius:3px;width:65%;"></div></div>
-          </div>
-          <!-- Main content -->
-          <div style="flex:1;display:flex;flex-direction:column;gap:8px;">
-            <!-- Stat cards -->
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
-              <div style="background:rgba(182,0,168,0.12);border:1px solid rgba(182,0,168,0.25);border-radius:6px;padding:8px;">
-                <div style="height:5px;background:rgba(215,226,234,0.25);border-radius:2px;width:60%;margin-bottom:5px;"></div>
-                <div style="height:10px;background:#b600a8;border-radius:3px;width:45%;opacity:0.7;"></div>
-              </div>
-              <div style="background:rgba(215,226,234,0.04);border:1px solid rgba(215,226,234,0.1);border-radius:6px;padding:8px;">
-                <div style="height:5px;background:rgba(215,226,234,0.25);border-radius:2px;width:60%;margin-bottom:5px;"></div>
-                <div style="height:10px;background:rgba(215,226,234,0.3);border-radius:3px;width:35%;"></div>
-              </div>
-            </div>
-            <!-- Table rows -->
-            <div style="background:rgba(215,226,234,0.03);border:1px solid rgba(215,226,234,0.08);border-radius:6px;overflow:hidden;">
-              <div style="background:rgba(215,226,234,0.06);padding:5px 8px;display:flex;gap:8px;">
-                <div style="height:5px;background:rgba(215,226,234,0.3);border-radius:2px;flex:2;"></div>
-                <div style="height:5px;background:rgba(215,226,234,0.2);border-radius:2px;flex:1;"></div>
-                <div style="height:5px;background:rgba(215,226,234,0.2);border-radius:2px;flex:1;"></div>
-              </div>
-              <div style="padding:5px 8px;display:flex;gap:8px;border-top:1px solid rgba(215,226,234,0.05);">
-                <div style="height:5px;background:rgba(215,226,234,0.15);border-radius:2px;flex:2;"></div>
-                <div style="height:5px;background:rgba(40,200,80,0.4);border-radius:2px;flex:1;"></div>
-                <div style="height:5px;background:rgba(215,226,234,0.1);border-radius:2px;flex:1;"></div>
-              </div>
-              <div style="padding:5px 8px;display:flex;gap:8px;border-top:1px solid rgba(215,226,234,0.05);">
-                <div style="height:5px;background:rgba(215,226,234,0.15);border-radius:2px;flex:2;"></div>
-                <div style="height:5px;background:rgba(182,0,168,0.4);border-radius:2px;flex:1;"></div>
-                <div style="height:5px;background:rgba(215,226,234,0.1);border-radius:2px;flex:1;"></div>
-              </div>
-              <div style="padding:5px 8px;display:flex;gap:8px;border-top:1px solid rgba(215,226,234,0.05);">
-                <div style="height:5px;background:rgba(215,226,234,0.15);border-radius:2px;flex:2;"></div>
-                <div style="height:5px;background:rgba(254,188,46,0.4);border-radius:2px;flex:1;"></div>
-                <div style="height:5px;background:rgba(215,226,234,0.1);border-radius:2px;flex:1;"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div style="text-align:center;margin-top:12px;font-family:Kanit,sans-serif;font-size:10px;letter-spacing:0.12em;color:rgba(215,226,234,0.3);text-transform:uppercase;">Recruitment Dashboard</div>
-    </div>
-  </div>
+  >
 </div>
 </article>
-<article class="sticky-card glass-panel rounded-2xl overflow-hidden group relative z-20" style="top: 160px; z-index: 20;" aria-label="YouTube Toxic Comment Analyzer project">
+<article class="sticky-card glass-panel rounded-2xl overflow-hidden group relative z-20" aria-label="YouTube Toxic Comment Analyzer project">
 <div class="project-card-inner">
   <!-- Left: Content -->
   <div class="flex flex-col justify-between p-5 md:p-7">
@@ -585,72 +490,10 @@
     </div>
   </div>
   <!-- Right: Visual Panel -->
-  <div class="project-visual-panel">
-    <div class="visual-bg-glow" style="background:radial-gradient(ellipse at 40% 50%, rgba(232,64,13,0.1) 0%, rgba(182,0,168,0.08) 50%, transparent 70%);"></div>
-    <div class="visual-mockup">
-      <!-- Comment classification UI mockup -->
-      <div class="screen-chrome">
-        <div class="chrome-bar">
-          <div class="chrome-dot" style="background:#ff5f57;"></div>
-          <div class="chrome-dot" style="background:#febc2e;"></div>
-          <div class="chrome-dot" style="background:#28c840;"></div>
-          <div style="flex:1;height:14px;background:rgba(215,226,234,0.06);border-radius:3px;margin-left:8px;"></div>
-        </div>
-        <div class="chrome-body" style="display:flex;flex-direction:column;gap:8px;">
-          <!-- Input bar -->
-          <div style="background:rgba(215,226,234,0.05);border:1px solid rgba(215,226,234,0.12);border-radius:5px;padding:7px 10px;display:flex;gap:8px;align-items:center;">
-            <div style="flex:1;height:6px;background:rgba(215,226,234,0.15);border-radius:3px;"></div>
-            <div style="width:28px;height:18px;background:rgba(182,0,168,0.5);border-radius:3px;"></div>
-          </div>
-          <!-- Comment cards with classification labels -->
-          <div style="display:flex;flex-direction:column;gap:5px;">
-            <div style="background:rgba(232,64,13,0.08);border:1px solid rgba(232,64,13,0.25);border-radius:5px;padding:7px 10px;display:flex;justify-content:space-between;align-items:center;">
-              <div style="display:flex;flex-direction:column;gap:3px;flex:1;">
-                <div style="height:5px;background:rgba(215,226,234,0.2);border-radius:2px;width:90%;"></div>
-                <div style="height:5px;background:rgba(215,226,234,0.12);border-radius:2px;width:65%;"></div>
-              </div>
-              <div style="margin-left:8px;padding:2px 7px;background:rgba(232,64,13,0.3);border-radius:99px;font-family:Kanit;font-size:8px;color:#ff8a6a;white-space:nowrap;">TOXIC</div>
-            </div>
-            <div style="background:rgba(40,200,80,0.06);border:1px solid rgba(40,200,80,0.2);border-radius:5px;padding:7px 10px;display:flex;justify-content:space-between;align-items:center;">
-              <div style="display:flex;flex-direction:column;gap:3px;flex:1;">
-                <div style="height:5px;background:rgba(215,226,234,0.2);border-radius:2px;width:80%;"></div>
-                <div style="height:5px;background:rgba(215,226,234,0.12);border-radius:2px;width:50%;"></div>
-              </div>
-              <div style="margin-left:8px;padding:2px 7px;background:rgba(40,200,80,0.25);border-radius:99px;font-family:Kanit;font-size:8px;color:#5eebb4;white-space:nowrap;">CLEAN</div>
-            </div>
-            <div style="background:rgba(232,64,13,0.08);border:1px solid rgba(232,64,13,0.2);border-radius:5px;padding:7px 10px;display:flex;justify-content:space-between;align-items:center;">
-              <div style="display:flex;flex-direction:column;gap:3px;flex:1;">
-                <div style="height:5px;background:rgba(215,226,234,0.2);border-radius:2px;width:75%;"></div>
-                <div style="height:5px;background:rgba(215,226,234,0.12);border-radius:2px;width:55%;"></div>
-              </div>
-              <div style="margin-left:8px;padding:2px 7px;background:rgba(232,64,13,0.3);border-radius:99px;font-family:Kanit;font-size:8px;color:#ff8a6a;white-space:nowrap;">TOXIC</div>
-            </div>
-            <div style="background:rgba(40,200,80,0.06);border:1px solid rgba(40,200,80,0.15);border-radius:5px;padding:7px 10px;display:flex;justify-content:space-between;align-items:center;">
-              <div style="display:flex;flex-direction:column;gap:3px;flex:1;">
-                <div style="height:5px;background:rgba(215,226,234,0.2);border-radius:2px;width:85%;"></div>
-                <div style="height:5px;background:rgba(215,226,234,0.12);border-radius:2px;width:60%;"></div>
-              </div>
-              <div style="margin-left:8px;padding:2px 7px;background:rgba(40,200,80,0.2);border-radius:99px;font-family:Kanit;font-size:8px;color:#5eebb4;white-space:nowrap;">CLEAN</div>
-            </div>
-          </div>
-          <!-- Accuracy bar -->
-          <div style="background:rgba(215,226,234,0.03);border:1px solid rgba(215,226,234,0.08);border-radius:5px;padding:8px 10px;">
-            <div style="display:flex;justify-content:space-between;margin-bottom:5px;">
-              <span style="font-family:Kanit;font-size:9px;color:rgba(215,226,234,0.4);letter-spacing:0.08em;text-transform:uppercase;">Model Accuracy</span>
-              <span style="font-family:Kanit;font-size:9px;color:#b600a8;font-weight:600;">89%</span>
-            </div>
-            <div style="height:4px;background:rgba(215,226,234,0.08);border-radius:2px;overflow:hidden;">
-              <div style="width:89%;height:100%;background:linear-gradient(90deg,#b600a8,#BE4C00);border-radius:2px;"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div style="text-align:center;margin-top:12px;font-family:Kanit,sans-serif;font-size:10px;letter-spacing:0.12em;color:rgba(215,226,234,0.3);text-transform:uppercase;">Comment Classifier</div>
-    </div>
-  </div>
+  >
 </div>
 </article>
-<article class="sticky-card glass-panel rounded-2xl overflow-hidden group relative z-20" style="top: 200px; z-index: 30;" aria-label="Resume Feedback Chatbot project">
+<article class="sticky-card glass-panel rounded-2xl overflow-hidden group relative z-20" aria-label="Resume Feedback Chatbot project">
 <div class="project-card-inner">
   <!-- Left: Content -->
   <div class="flex flex-col justify-between p-5 md:p-7">
@@ -698,68 +541,10 @@
     </div>
   </div>
   <!-- Right: Visual Panel -->
-  <div class="project-visual-panel">
-    <div class="visual-bg-glow" style="background:radial-gradient(ellipse at 50% 40%, rgba(118,33,176,0.15) 0%, rgba(182,0,168,0.06) 60%, transparent 80%);"></div>
-    <div class="visual-mockup">
-      <div class="screen-chrome">
-        <div class="chrome-bar">
-          <div class="chrome-dot" style="background:#ff5f57;"></div>
-          <div class="chrome-dot" style="background:#febc2e;"></div>
-          <div class="chrome-dot" style="background:#28c840;"></div>
-          <div style="flex:1;height:14px;background:rgba(215,226,234,0.06);border-radius:3px;margin-left:8px;"></div>
-        </div>
-        <div class="chrome-body" style="display:flex;flex-direction:column;gap:8px;">
-          <!-- ATS Score Ring -->
-          <div style="display:flex;align-items:center;gap:12px;background:rgba(182,0,168,0.06);border:1px solid rgba(182,0,168,0.15);border-radius:8px;padding:10px 12px;">
-            <div style="position:relative;width:44px;height:44px;flex-shrink:0;">
-              <svg viewBox="0 0 44 44" style="width:100%;height:100%;transform:rotate(-90deg);">
-                <circle cx="22" cy="22" r="18" fill="none" stroke="rgba(215,226,234,0.08)" stroke-width="4"/>
-                <circle cx="22" cy="22" r="18" fill="none" stroke="#b600a8" stroke-width="4" stroke-dasharray="113" stroke-dashoffset="20" stroke-linecap="round"/>
-              </svg>
-              <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:Kanit;font-size:10px;font-weight:700;color:#b600a8;">82</span>
-            </div>
-            <div>
-              <div style="font-family:Kanit;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(215,226,234,0.4);margin-bottom:3px;">ATS Score</div>
-              <div style="font-family:Kanit;font-size:11px;font-weight:600;color:#D7E2EA;">Good Match</div>
-            </div>
-          </div>
-          <!-- Chat messages -->
-          <div style="display:flex;flex-direction:column;gap:5px;">
-            <div style="display:flex;justify-content:flex-end;">
-              <div style="background:rgba(182,0,168,0.2);border:1px solid rgba(182,0,168,0.3);border-radius:8px 8px 2px 8px;padding:6px 10px;max-width:75%;">
-                <div style="height:5px;background:rgba(215,226,234,0.4);border-radius:2px;width:100%;margin-bottom:3px;"></div>
-                <div style="height:5px;background:rgba(215,226,234,0.25);border-radius:2px;width:70%;"></div>
-              </div>
-            </div>
-            <div style="display:flex;justify-content:flex-start;">
-              <div style="background:rgba(215,226,234,0.05);border:1px solid rgba(215,226,234,0.1);border-radius:8px 8px 8px 2px;padding:6px 10px;max-width:85%;">
-                <div style="height:5px;background:rgba(215,226,234,0.25);border-radius:2px;width:100%;margin-bottom:3px;"></div>
-                <div style="height:5px;background:rgba(215,226,234,0.15);border-radius:2px;width:90%;margin-bottom:3px;"></div>
-                <div style="height:5px;background:rgba(215,226,234,0.15);border-radius:2px;width:75%;"></div>
-              </div>
-            </div>
-            <div style="display:flex;justify-content:flex-start;">
-              <div style="background:rgba(215,226,234,0.05);border:1px solid rgba(215,226,234,0.1);border-radius:8px 8px 8px 2px;padding:6px 10px;max-width:80%;">
-                <div style="height:5px;background:rgba(215,226,234,0.25);border-radius:2px;width:100%;margin-bottom:3px;"></div>
-                <div style="height:5px;background:rgba(215,226,234,0.15);border-radius:2px;width:60%;"></div>
-              </div>
-            </div>
-          </div>
-          <!-- Input -->
-          <div style="background:rgba(215,226,234,0.05);border:1px solid rgba(215,226,234,0.1);border-radius:5px;padding:7px 10px;display:flex;gap:8px;align-items:center;">
-            <div style="flex:1;height:6px;background:rgba(215,226,234,0.1);border-radius:3px;"></div>
-            <div style="width:22px;height:22px;background:rgba(182,0,168,0.5);border-radius:4px;display:flex;align-items:center;justify-content:center;">
-              <svg viewBox="0 0 12 12" width="10" height="10"><path d="M2 6h8M6 2l4 4-4 4" stroke="#fff" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div style="text-align:center;margin-top:12px;font-family:Kanit,sans-serif;font-size:10px;letter-spacing:0.12em;color:rgba(215,226,234,0.3);text-transform:uppercase;">Resume Analyzer</div>
-    </div>
-  </div>
+  >
 </div>
 </article>
-<article class="sticky-card glass-panel rounded-2xl overflow-hidden group relative z-20" style="top: 240px; z-index: 40;" aria-label="CineSense project">
+<article class="sticky-card glass-panel rounded-2xl overflow-hidden group relative z-20" aria-label="CineSense project">
 <div class="project-card-inner">
   <!-- Left: Content -->
   <div class="flex flex-col justify-between p-5 md:p-7">
@@ -808,70 +593,10 @@
     </div>
   </div>
   <!-- Right: Visual Panel -->
-  <div class="project-visual-panel">
-    <div class="visual-bg-glow" style="background:radial-gradient(ellipse at 50% 50%, rgba(190,76,0,0.12) 0%, rgba(182,0,168,0.08) 55%, transparent 75%);"></div>
-    <div class="visual-mockup">
-      <div class="screen-chrome">
-        <div class="chrome-bar">
-          <div class="chrome-dot" style="background:#ff5f57;"></div>
-          <div class="chrome-dot" style="background:#febc2e;"></div>
-          <div class="chrome-dot" style="background:#28c840;"></div>
-          <div style="flex:1;height:14px;background:rgba(215,226,234,0.06);border-radius:3px;margin-left:8px;"></div>
-        </div>
-        <div class="chrome-body" style="display:flex;flex-direction:column;gap:8px;">
-          <!-- Search bar -->
-          <div style="background:rgba(215,226,234,0.05);border:1px solid rgba(215,226,234,0.12);border-radius:5px;padding:7px 10px;display:flex;gap:8px;align-items:center;">
-            <svg viewBox="0 0 12 12" width="10" height="10" style="flex-shrink:0;"><circle cx="5" cy="5" r="3.5" stroke="rgba(215,226,234,0.3)" stroke-width="1.2" fill="none"/><path d="M8 8l2 2" stroke="rgba(215,226,234,0.3)" stroke-width="1.2" stroke-linecap="round"/></svg>
-            <div style="flex:1;height:6px;background:rgba(215,226,234,0.12);border-radius:3px;"></div>
-          </div>
-          <!-- Movie cards grid -->
-          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;">
-            <div style="border-radius:5px;overflow:hidden;background:rgba(190,76,0,0.15);border:1px solid rgba(190,76,0,0.25);">
-              <div style="height:48px;background:linear-gradient(160deg,rgba(190,76,0,0.3),rgba(182,0,168,0.2));display:flex;align-items:center;justify-content:center;">
-                <svg viewBox="0 0 16 16" width="14" height="14"><path d="M3 4l2-2h6l2 2v8l-2 2H5L3 12V4z" fill="none" stroke="rgba(215,226,234,0.4)" stroke-width="1"/><path d="M6 7l2 1.5L10 7" fill="none" stroke="rgba(215,226,234,0.4)" stroke-width="1" stroke-linecap="round"/></svg>
-              </div>
-              <div style="padding:4px 5px;"><div style="height:4px;background:rgba(215,226,234,0.2);border-radius:2px;"></div></div>
-            </div>
-            <div style="border-radius:5px;overflow:hidden;background:rgba(182,0,168,0.12);border:1px solid rgba(182,0,168,0.25);">
-              <div style="height:48px;background:linear-gradient(160deg,rgba(182,0,168,0.3),rgba(118,33,176,0.2));display:flex;align-items:center;justify-content:center;">
-                <svg viewBox="0 0 16 16" width="14" height="14"><path d="M3 4l2-2h6l2 2v8l-2 2H5L3 12V4z" fill="none" stroke="rgba(215,226,234,0.4)" stroke-width="1"/><path d="M6 7l2 1.5L10 7" fill="none" stroke="rgba(215,226,234,0.4)" stroke-width="1" stroke-linecap="round"/></svg>
-              </div>
-              <div style="padding:4px 5px;"><div style="height:4px;background:rgba(215,226,234,0.2);border-radius:2px;"></div></div>
-            </div>
-            <div style="border-radius:5px;overflow:hidden;background:rgba(118,33,176,0.12);border:1px solid rgba(118,33,176,0.25);">
-              <div style="height:48px;background:linear-gradient(160deg,rgba(118,33,176,0.3),rgba(190,76,0,0.15));display:flex;align-items:center;justify-content:center;">
-                <svg viewBox="0 0 16 16" width="14" height="14"><path d="M3 4l2-2h6l2 2v8l-2 2H5L3 12V4z" fill="none" stroke="rgba(215,226,234,0.4)" stroke-width="1"/><path d="M6 7l2 1.5L10 7" fill="none" stroke="rgba(215,226,234,0.4)" stroke-width="1" stroke-linecap="round"/></svg>
-              </div>
-              <div style="padding:4px 5px;"><div style="height:4px;background:rgba(215,226,234,0.2);border-radius:2px;"></div></div>
-            </div>
-          </div>
-          <!-- Sentiment bar -->
-          <div style="background:rgba(215,226,234,0.03);border:1px solid rgba(215,226,234,0.08);border-radius:5px;padding:8px 10px;">
-            <div style="font-family:Kanit;font-size:9px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(215,226,234,0.4);margin-bottom:6px;">Sentiment Analysis</div>
-            <div style="display:flex;gap:4px;align-items:center;margin-bottom:4px;">
-              <span style="font-family:Kanit;font-size:8px;color:rgba(40,200,80,0.8);width:40px;">Pos</span>
-              <div style="flex:1;height:5px;background:rgba(215,226,234,0.06);border-radius:2px;overflow:hidden;"><div style="width:72%;height:100%;background:rgba(40,200,80,0.5);border-radius:2px;"></div></div>
-              <span style="font-family:Kanit;font-size:8px;color:rgba(215,226,234,0.35);">72%</span>
-            </div>
-            <div style="display:flex;gap:4px;align-items:center;margin-bottom:4px;">
-              <span style="font-family:Kanit;font-size:8px;color:rgba(215,226,234,0.5);width:40px;">Neu</span>
-              <div style="flex:1;height:5px;background:rgba(215,226,234,0.06);border-radius:2px;overflow:hidden;"><div style="width:18%;height:100%;background:rgba(215,226,234,0.25);border-radius:2px;"></div></div>
-              <span style="font-family:Kanit;font-size:8px;color:rgba(215,226,234,0.35);">18%</span>
-            </div>
-            <div style="display:flex;gap:4px;align-items:center;">
-              <span style="font-family:Kanit;font-size:8px;color:rgba(232,64,13,0.8);width:40px;">Neg</span>
-              <div style="flex:1;height:5px;background:rgba(215,226,234,0.06);border-radius:2px;overflow:hidden;"><div style="width:10%;height:100%;background:rgba(232,64,13,0.4);border-radius:2px;"></div></div>
-              <span style="font-family:Kanit;font-size:8px;color:rgba(215,226,234,0.35);">10%</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div style="text-align:center;margin-top:12px;font-family:Kanit,sans-serif;font-size:10px;letter-spacing:0.12em;color:rgba(215,226,234,0.3);text-transform:uppercase;">Movie Discovery</div>
-    </div>
-  </div>
+  >
 </div>
 </article>
-<article class="sticky-card glass-panel rounded-2xl overflow-hidden group relative z-20" style="top: 280px; z-index: 50;" aria-label="Amazon Sales Intelligence project">
+<article class="sticky-card glass-panel rounded-2xl overflow-hidden group relative z-20" aria-label="Amazon Sales Intelligence project">
 <div class="project-card-inner">
   <!-- Left: Content -->
   <div class="flex flex-col justify-between p-5 md:p-7">
@@ -920,82 +645,7 @@
     </div>
   </div>
   <!-- Right: Visual Panel -->
-  <div class="project-visual-panel">
-    <div class="visual-bg-glow" style="background:radial-gradient(ellipse at 50% 60%, rgba(242,200,17,0.08) 0%, rgba(182,0,168,0.08) 55%, transparent 75%);"></div>
-    <div class="visual-mockup">
-      <div class="screen-chrome">
-        <div class="chrome-bar">
-          <div class="chrome-dot" style="background:#ff5f57;"></div>
-          <div class="chrome-dot" style="background:#febc2e;"></div>
-          <div class="chrome-dot" style="background:#28c840;"></div>
-          <div style="flex:1;height:14px;background:rgba(215,226,234,0.06);border-radius:3px;margin-left:8px;"></div>
-        </div>
-        <div class="chrome-body" style="display:flex;flex-direction:column;gap:8px;">
-          <!-- KPI row -->
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:5px;">
-            <div style="background:rgba(182,0,168,0.1);border:1px solid rgba(182,0,168,0.2);border-radius:5px;padding:7px 6px;text-align:center;">
-              <div style="font-family:Kanit;font-size:11px;font-weight:700;color:#b600a8;">₹2.4M</div>
-              <div style="font-family:Kanit;font-size:7px;color:rgba(215,226,234,0.35);text-transform:uppercase;letter-spacing:0.06em;">Revenue</div>
-            </div>
-            <div style="background:rgba(215,226,234,0.04);border:1px solid rgba(215,226,234,0.1);border-radius:5px;padding:7px 6px;text-align:center;">
-              <div style="font-family:Kanit;font-size:11px;font-weight:700;color:#D7E2EA;">8.2K</div>
-              <div style="font-family:Kanit;font-size:7px;color:rgba(215,226,234,0.35);text-transform:uppercase;letter-spacing:0.06em;">Orders</div>
-            </div>
-            <div style="background:rgba(40,200,80,0.07);border:1px solid rgba(40,200,80,0.18);border-radius:5px;padding:7px 6px;text-align:center;">
-              <div style="font-family:Kanit;font-size:11px;font-weight:700;color:#5eebb4;">+18%</div>
-              <div style="font-family:Kanit;font-size:7px;color:rgba(215,226,234,0.35);text-transform:uppercase;letter-spacing:0.06em;">Growth</div>
-            </div>
-          </div>
-          <!-- Bar chart -->
-          <div style="background:rgba(215,226,234,0.03);border:1px solid rgba(215,226,234,0.08);border-radius:5px;padding:10px;">
-            <div style="font-family:Kanit;font-size:8px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(215,226,234,0.35);margin-bottom:8px;">Monthly Revenue</div>
-            <div style="display:flex;align-items:flex-end;gap:4px;height:55px;">
-              <div style="flex:1;background:linear-gradient(to top,rgba(182,0,168,0.6),rgba(182,0,168,0.2));border-radius:2px 2px 0 0;height:40%;"></div>
-              <div style="flex:1;background:linear-gradient(to top,rgba(182,0,168,0.6),rgba(182,0,168,0.2));border-radius:2px 2px 0 0;height:55%;"></div>
-              <div style="flex:1;background:linear-gradient(to top,rgba(182,0,168,0.6),rgba(182,0,168,0.2));border-radius:2px 2px 0 0;height:45%;"></div>
-              <div style="flex:1;background:linear-gradient(to top,rgba(182,0,168,0.6),rgba(182,0,168,0.2));border-radius:2px 2px 0 0;height:70%;"></div>
-              <div style="flex:1;background:linear-gradient(to top,rgba(190,76,0,0.8),rgba(190,76,0,0.3));border-radius:2px 2px 0 0;height:90%;"></div>
-              <div style="flex:1;background:linear-gradient(to top,rgba(182,0,168,0.6),rgba(182,0,168,0.2));border-radius:2px 2px 0 0;height:65%;"></div>
-              <div style="flex:1;background:linear-gradient(to top,rgba(182,0,168,0.6),rgba(182,0,168,0.2));border-radius:2px 2px 0 0;height:75%;"></div>
-              <div style="flex:1;background:linear-gradient(to top,rgba(182,0,168,0.6),rgba(182,0,168,0.2));border-radius:2px 2px 0 0;height:60%;"></div>
-            </div>
-            <div style="display:flex;gap:4px;margin-top:4px;">
-              <div style="flex:1;font-family:Kanit;font-size:6px;text-align:center;color:rgba(215,226,234,0.2);">Jan</div>
-              <div style="flex:1;font-family:Kanit;font-size:6px;text-align:center;color:rgba(215,226,234,0.2);">Feb</div>
-              <div style="flex:1;font-family:Kanit;font-size:6px;text-align:center;color:rgba(215,226,234,0.2);">Mar</div>
-              <div style="flex:1;font-family:Kanit;font-size:6px;text-align:center;color:rgba(215,226,234,0.2);">Apr</div>
-              <div style="flex:1;font-family:Kanit;font-size:6px;text-align:center;color:rgba(190,76,0,0.7);">May</div>
-              <div style="flex:1;font-family:Kanit;font-size:6px;text-align:center;color:rgba(215,226,234,0.2);">Jun</div>
-              <div style="flex:1;font-family:Kanit;font-size:6px;text-align:center;color:rgba(215,226,234,0.2);">Jul</div>
-              <div style="flex:1;font-family:Kanit;font-size:6px;text-align:center;color:rgba(215,226,234,0.2);">Aug</div>
-            </div>
-          </div>
-          <!-- Region table -->
-          <div style="background:rgba(215,226,234,0.03);border:1px solid rgba(215,226,234,0.08);border-radius:5px;padding:7px 10px;">
-            <div style="font-family:Kanit;font-size:8px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(215,226,234,0.35);margin-bottom:5px;">Top Regions</div>
-            <div style="display:flex;flex-direction:column;gap:4px;">
-              <div style="display:flex;justify-content:space-between;align-items:center;">
-                <span style="font-family:Kanit;font-size:8px;color:rgba(215,226,234,0.5);">Maharashtra</span>
-                <div style="width:55%;height:4px;background:rgba(215,226,234,0.06);border-radius:2px;overflow:hidden;"><div style="width:82%;height:100%;background:rgba(182,0,168,0.5);border-radius:2px;"></div></div>
-                <span style="font-family:Kanit;font-size:8px;color:rgba(215,226,234,0.35);">82%</span>
-              </div>
-              <div style="display:flex;justify-content:space-between;align-items:center;">
-                <span style="font-family:Kanit;font-size:8px;color:rgba(215,226,234,0.5);">Delhi</span>
-                <div style="width:55%;height:4px;background:rgba(215,226,234,0.06);border-radius:2px;overflow:hidden;"><div style="width:65%;height:100%;background:rgba(182,0,168,0.35);border-radius:2px;"></div></div>
-                <span style="font-family:Kanit;font-size:8px;color:rgba(215,226,234,0.35);">65%</span>
-              </div>
-              <div style="display:flex;justify-content:space-between;align-items:center;">
-                <span style="font-family:Kanit;font-size:8px;color:rgba(215,226,234,0.5);">Karnataka</span>
-                <div style="width:55%;height:4px;background:rgba(215,226,234,0.06);border-radius:2px;overflow:hidden;"><div style="width:48%;height:100%;background:rgba(182,0,168,0.25);border-radius:2px;"></div></div>
-                <span style="font-family:Kanit;font-size:8px;color:rgba(215,226,234,0.35);">48%</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div style="text-align:center;margin-top:12px;font-family:Kanit,sans-serif;font-size:10px;letter-spacing:0.12em;color:rgba(215,226,234,0.3);text-transform:uppercase;">Sales Dashboard</div>
-    </div>
-  </div>
+  >
 </div>
 </article>
 </div>
@@ -3340,13 +2990,14 @@
 </div>
 </div>
 </div>
+</main>
 <!-- Footer -->
-<footer class="border-t border-border-subtle w-full py-6" style="position:relative;z-index:9000;background:rgba(19,19,19,0.78) !important;backdrop-filter:blur(20px) !important;-webkit-backdrop-filter:blur(20px) !important;isolation:isolate;">
-<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop w-full max-w-container-max mx-auto gap-gutter">
+<footer class="border-t border-border-subtle w-full py-6" style="position:relative;z-index:9000;background:rgba(19,19,19,0.78) !important;backdrop-filter:blur(20px) !important;-webkit-backdrop-filter:blur(20px) !important;">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto gap-gutter">
 <div class="font-headline-md text-headline-md text-on-surface">VANSH GUPTA</div>
 <div class="flex gap-6 flex-wrap justify-center">
-<a class="font-label-caps text-label-caps text-text-secondary hover:text-primary transition-colors duration-300" href="https://github.com/vanshg2" target="_blank" rel="noopener noreferrer">GITHUB</a>
-<a class="font-label-caps text-label-caps text-text-secondary hover:text-primary transition-colors duration-300" href="https://linkedin.com/in/vansh-gupta-ai" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
+<a class="font-label-caps text-label-caps text-text-secondary hover:text-primary transition-colors duration-300 active:opacity-80" href="https://github.com/vanshg2" target="_blank" rel="noopener noreferrer">GITHUB</a>
+<a class="font-label-caps text-label-caps text-text-secondary hover:text-primary transition-colors duration-300 active:opacity-80" href="https://linkedin.com/in/vansh-gupta-ai" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
 </div>
 <div class="flex flex-col gap-1 text-center md:text-right">
 <a href="mailto:vanshgpt2911@gmail.com" class="font-label-caps text-label-caps text-primary hover:text-tertiary transition-colors duration-300">vanshgpt2911@gmail.com</a>
@@ -3362,11 +3013,10 @@
         }
     });
 
-    // Scroll-reveal: alternating left/right slide-in
+    // Scroll-reveal: staggered fade-up entry
     const cards = document.querySelectorAll('.sticky-card');
     cards.forEach((card, i) => {
-        card.classList.add(i % 2 === 0 ? 'from-left' : 'from-right');
-        card.style.transitionDelay = '0.05s';
+        card.style.transitionDelay = `${(i % 2) * 0.15}s`;
     });
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -3375,40 +3025,9 @@
                 observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.15 });
+    }, { threshold: 0.1 });
     cards.forEach(card => observer.observe(card));
 
-    // Stacking card deck overlap transition
-    function updateStackEffect() {
-        cards.forEach((card, index) => {
-            if (!card.classList.contains('visible')) return;
-            const rect = card.getBoundingClientRect();
-            let overlap = 0;
-            
-            for (let j = index + 1; j < cards.length; j++) {
-                const nextRect = cards[j].getBoundingClientRect();
-                const nextTop = nextRect.top;
-                const currentTop = rect.top;
-                const currentHeight = rect.height;
-                
-                if (nextTop < currentTop + currentHeight) {
-                    const diff = (currentTop + currentHeight) - nextTop;
-                    const ratio = Math.min(Math.max(diff / currentHeight, 0), 1);
-                    overlap = Math.max(overlap, ratio);
-                }
-            }
-            
-            const scale = 1 - (overlap * 0.05);
-            const brightness = 1 - (overlap * 0.4);
-            const translate = -overlap * 12;
-            
-            card.style.transform = `scale(${scale}) translateY(${translate}px)`;
-            card.style.filter = `brightness(${brightness})`;
-        });
-    }
-    window.addEventListener('scroll', () => requestAnimationFrame(updateStackEffect));
-    window.addEventListener('resize', updateStackEffect);
-    setTimeout(updateStackEffect, 100);
 
     // Magnetic button effect
     document.querySelectorAll('.magnetic-btn').forEach(btn => {
@@ -3464,5 +3083,5 @@
 
 
 
-<script src="chatbot.js"></script>
+<script src="chatbot.js?v=2.1"></script>
 </body></html>

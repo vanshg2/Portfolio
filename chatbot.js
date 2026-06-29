@@ -3,6 +3,10 @@
   if (window.__vanshChatInit) return;
   window.__vanshChatInit = true;
 
+  // ── CONFIGURATION ────────────────────────────────────────
+  // Retrieve key from localStorage to avoid hardcoding secrets in public git repositories
+  let GEMINI_API_KEY = localStorage.getItem('GEMINI_API_KEY') || "";
+
   const SYSTEM_PROMPT = `You are Vansh's portfolio assistant — a sharp, friendly AI that represents Vansh Gupta to recruiters, collaborators, and curious visitors. You know everything about Vansh and answer confidently on his behalf. Keep responses concise (2–4 sentences max unless a detailed breakdown is asked for). Be direct, warm, and slightly witty — like a knowledgeable colleague, not a formal CV.
 
 ABOUT VANSH:
@@ -338,20 +342,66 @@ RESPONSE RULES:
     isLoading = true; sendBtn.disabled = true;
     showTyping();
 
+    async function promptForKeyAndResend() {
+      removeTyping();
+      const userKey = prompt("Please enter your Google Gemini API Key to enable the chatbot locally (saved only locally in your browser):");
+      if (userKey && userKey.trim()) {
+        GEMINI_API_KEY = userKey.trim();
+        localStorage.setItem('GEMINI_API_KEY', GEMINI_API_KEY);
+        addMessage('bot', '🔑 API Key saved locally. Resending your message...');
+        isLoading = false; sendBtn.disabled = false;
+        inputEl.value = text;
+        sendMessage();
+      } else {
+        addMessage('bot', '⚠️ **Gemini API Key is required for local testing.** Please enter a key or run the project through Vercel with environment variables.');
+        isLoading = false; sendBtn.disabled = false;
+      }
+    }
+
     try {
-      const res = await fetch('https://api.anthropic.com/v1/messages', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          model: 'claude-sonnet-4-6',
-          max_tokens: 1000,
-          system: SYSTEM_PROMPT,
-          messages: history,
-        }),
-      });
+      const contents = history.map(item => ({
+        role: item.role === 'assistant' ? 'model' : 'user',
+        parts: [{ text: item.content }]
+      }));
+
+      let res;
+      if (GEMINI_API_KEY) {
+        // Direct call (local development mode with local key)
+        res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            contents: contents,
+            systemInstruction: {
+              parts: [{ text: SYSTEM_PROMPT }]
+            },
+            generationConfig: {
+              temperature: 0.7,
+              maxOutputTokens: 800,
+            }
+          }),
+        });
+      } else {
+        // Vercel Serverless Function call (production mode with secret API key)
+        res = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            contents: contents,
+            systemInstruction: SYSTEM_PROMPT
+          }),
+        });
+      }
+
+      if (!res.ok) {
+        if (res.status === 404 && (location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
+          return promptForKeyAndResend();
+        }
+        throw new Error(`API returned status ${res.status}`);
+      }
 
       const data = await res.json();
-      const reply = data.content?.[0]?.text || "Sorry, I couldn't get a response right now. Try emailing Vansh at vanshgpt2911@gmail.com!";
+      const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || "Sorry, I couldn't get a response right now. Try emailing Vansh at vanshgpt2911@gmail.com!";
 
       removeTyping();
       addMessage('bot', reply);
@@ -371,6 +421,7 @@ RESPONSE RULES:
 
       if (!isOpen) showBadge();
     } catch (e) {
+      console.error(e);
       removeTyping();
       addMessage('bot', 'Something went wrong connecting to the API. You can reach Vansh directly at vanshgpt2911@gmail.com.');
     }
