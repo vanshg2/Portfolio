@@ -784,17 +784,20 @@
 </div>
 <div class="p-8 space-y-10 text-text-primary">
   
-  <!-- Overview Section -->
+  <!-- Overview Section with Stats Banner -->
   <div class="space-y-4">
     <div class="flex items-center gap-3">
       <span class="material-symbols-outlined text-primary text-3xl">shopping_cart</span>
       <h4 class="font-headline-md text-2xl text-white">Overview</h4>
     </div>
     <p class="font-body-md text-text-secondary leading-relaxed">
-      <strong>Sahari Hub</strong> is an ultra-modern, high-performance 3D interactive e-commerce platform. It combines an immersive Next.js 16 frontend powered by Three.js and Framer Motion with a robust, enterprise-grade NestJS 11 backend.
+      <strong>Sahari Hub</strong> is an ultra-modern, high-performance 3D interactive e-commerce platform. It serves as an end-to-end shopping experience handling interactive 3D product viewports, dynamic category filtering, real-time cart state management, and secure payment checkout.
     </p>
     <p class="font-body-md text-text-secondary leading-relaxed">
-      Traditional e-commerce platforms suffer from static, flat product images that limit customer engagement. Sahari Hub transforms product exploration by rendering interactive 3D product viewports, seamless cart management, dynamic category filtering, and instant checkout.
+      Traditional e-commerce platforms suffer from static, 2D product images that limit buyer confidence and customer engagement. This leads to higher cart abandonment rates, return requests, and uninspiring digital shopping experiences.
+    </p>
+    <p class="font-body-md text-text-secondary leading-relaxed">
+      This project solves these challenges by combining an immersive Next.js 16 frontend powered by Three.js and Framer Motion with a robust, enterprise-grade NestJS 11 backend and Prisma ORM data layer.
     </p>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4">
       <div class="glass-panel p-4 rounded-xl text-center">
@@ -818,32 +821,367 @@
 
   <hr class="border-border-subtle/50" />
 
-  <!-- Features & Architecture -->
+  <!-- Problem vs Solution Columns -->
   <div class="grid md:grid-cols-2 gap-8">
-    <div class="space-y-4 p-6 glass-panel rounded-2xl border-purple-500/20">
-      <h5 class="font-headline-md text-lg text-white flex items-center gap-2">
-        <span class="material-symbols-outlined text-primary">view_in_ar</span>
-        Frontend Features
-      </h5>
+    <!-- Problem -->
+    <div class="space-y-4 p-6 glass-panel rounded-2xl border-red-500/20 hover:border-red-500/30">
+      <div class="flex items-center gap-3 text-red-400">
+        <span class="material-symbols-outlined text-2xl">warning</span>
+        <h4 class="font-headline-md text-xl text-white">Problem Statement</h4>
+      </div>
+      <p class="font-body-md text-text-secondary leading-relaxed">
+        Online retail platforms face significant hurdles engaging digital shoppers effectively:
+      </p>
       <ul class="space-y-2 text-sm text-text-secondary">
-        <li class="flex items-start gap-2"><span class="text-primary">•</span> Interactive 3D Product Canvas powered by React Three Fiber &amp; Drei</li>
-        <li class="flex items-start gap-2"><span class="text-primary">•</span> Smooth page transitions and micro-animations with Framer Motion</li>
-        <li class="flex items-start gap-2"><span class="text-primary">•</span> Responsive product catalog grid with instant search and category filters</li>
-        <li class="flex items-start gap-2"><span class="text-primary">•</span> Real-time cart state management and guest checkout flows</li>
+        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-red-400"></span> Flat 2D photos fail to convey product texture, scale, and 360° details.</li>
+        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-red-400"></span> Slow page reloads during product search frustrate buyers.</li>
+        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-red-400"></span> Unsecured payment flows and clunky cart checkouts increase drop-offs.</li>
       </ul>
+      <p class="font-body-md text-text-secondary leading-relaxed text-sm pt-2 border-t border-border-subtle/30">
+        These shortcomings lower conversion rates and create friction between customers and online stores.
+      </p>
     </div>
-    <div class="space-y-4 p-6 glass-panel rounded-2xl border-green-500/20">
-      <h5 class="font-headline-md text-lg text-white flex items-center gap-2">
-        <span class="material-symbols-outlined text-tertiary">dns</span>
-        Backend &amp; Security Architecture
-      </h5>
+
+    <!-- Solution -->
+    <div class="space-y-4 p-6 glass-panel rounded-2xl border-emerald-500/20 hover:border-emerald-500/30">
+      <div class="flex items-center gap-3 text-emerald-400">
+        <span class="material-symbols-outlined text-2xl">lightbulb</span>
+        <h4 class="font-headline-md text-xl text-white">Solution</h4>
+      </div>
+      <p class="font-body-md text-text-secondary leading-relaxed">
+        An interactive, full-stack 3D shopping platform built for maximum buyer immersion and instant transactions:
+      </p>
       <ul class="space-y-2 text-sm text-text-secondary">
-        <li class="flex items-start gap-2"><span class="text-tertiary">•</span> NestJS 11 modular architecture with DTO validation &amp; strict typing</li>
-        <li class="flex items-start gap-2"><span class="text-tertiary">•</span> Prisma ORM integration with SQLite / PostgreSQL relational schema</li>
-        <li class="flex items-start gap-2"><span class="text-tertiary">•</span> JWT Authentication &amp; Passport strategy with bcrypt password hashing</li>
-        <li class="flex items-start gap-2"><span class="text-tertiary">•</span> Razorpay integration for order creation, webhooks, and payment verification</li>
+        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Interactive WebGL 3D viewports offering 360° product inspection.</li>
+        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Decoupled NestJS 11 backend with fast REST APIs and Prisma ORM.</li>
+        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Razorpay payment gateway integration with instant verification.</li>
       </ul>
+      <p class="font-body-md text-text-secondary leading-relaxed text-sm pt-2 border-t border-border-subtle/30">
+        Empowers buyers to inspect products interactively and complete orders seamlessly.
+      </p>
     </div>
+  </div>
+
+  <hr class="border-border-subtle/50" />
+
+  <!-- Project Objectives -->
+  <div class="space-y-4">
+    <div class="flex items-center gap-3">
+      <span class="material-symbols-outlined text-primary text-2xl">stars</span>
+      <h4 class="font-headline-md text-xl text-white">Project Objectives</h4>
+    </div>
+    <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="p-4 bg-surface-container-high rounded-xl border border-border-subtle/30 flex items-start gap-3">
+        <span class="material-symbols-outlined text-primary mt-0.5">hub</span>
+        <div>
+          <h5 class="font-semibold text-white text-sm mb-1">3D Interactive Catalog</h5>
+          <p class="text-xs text-text-secondary">Bring 360° 3D product viewports into standard web browsers.</p>
+        </div>
+      </div>
+      <div class="p-4 bg-surface-container-high rounded-xl border border-border-subtle/30 flex items-start gap-3">
+        <span class="material-symbols-outlined text-primary mt-0.5">payments</span>
+        <div>
+          <h5 class="font-semibold text-white text-sm mb-1">Secure Payments</h5>
+          <p class="text-xs text-text-secondary">Integrate Razorpay gateway for verified instant checkouts.</p>
+        </div>
+      </div>
+      <div class="p-4 bg-surface-container-high rounded-xl border border-border-subtle/30 flex items-start gap-3">
+        <span class="material-symbols-outlined text-primary mt-0.5">inventory</span>
+        <div>
+          <h5 class="font-semibold text-white text-sm mb-1">Catalog Control</h5>
+          <p class="text-xs text-text-secondary">Manage products, categories, and inventory via Prisma ORM.</p>
+        </div>
+      </div>
+      <div class="p-4 bg-surface-container-high rounded-xl border border-border-subtle/30 flex items-start gap-3">
+        <span class="material-symbols-outlined text-primary mt-0.5">rocket_launch</span>
+        <div>
+          <h5 class="font-semibold text-white text-sm mb-1">Modern Architecture</h5>
+          <p class="text-xs text-text-secondary">Combine Next.js 16 (React 19) and NestJS 11 backend.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="border-border-subtle/50" />
+
+  <!-- System Workflow Diagram -->
+  <div class="space-y-4">
+    <div class="flex items-center gap-3">
+      <span class="material-symbols-outlined text-primary text-2xl">account_tree</span>
+      <h4 class="font-headline-md text-xl text-white">System Architecture Flow</h4>
+    </div>
+    
+    <div class="p-6 bg-surface-container-low rounded-2xl border border-border-subtle/30 overflow-x-auto">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-2 min-w-[700px] py-4">
+        
+        <div class="flex flex-col items-center p-3 bg-surface-container-high border border-border-subtle rounded-xl w-32 text-center">
+          <span class="material-symbols-outlined text-primary mb-1">public</span>
+          <span class="text-xs font-semibold text-white">Next.js 16 UI</span>
+        </div>
+        
+        <span class="material-symbols-outlined text-text-secondary md:rotate-0 rotate-90">arrow_forward</span>
+        
+        <div class="flex flex-col items-center p-3 bg-surface-container-high border border-border-subtle rounded-xl w-32 text-center">
+          <span class="material-symbols-outlined text-primary mb-1">view_in_ar</span>
+          <span class="text-xs font-semibold text-white">Three.js Viewport</span>
+        </div>
+        
+        <span class="material-symbols-outlined text-text-secondary md:rotate-0 rotate-90">arrow_forward</span>
+        
+        <div class="flex flex-col items-center p-3 bg-surface-container-high border border-border-subtle rounded-xl w-32 text-center">
+          <span class="material-symbols-outlined text-primary mb-1">dns</span>
+          <span class="text-xs font-semibold text-white">NestJS Backend</span>
+        </div>
+        
+        <span class="material-symbols-outlined text-text-secondary md:rotate-0 rotate-90">swap_horiz</span>
+        
+        <div class="flex flex-col items-center p-3 bg-surface-container-high border border-border-subtle rounded-xl w-32 text-center">
+          <span class="material-symbols-outlined text-primary mb-1">database</span>
+          <span class="text-xs font-semibold text-white">Prisma DB</span>
+        </div>
+        
+        <span class="material-symbols-outlined text-text-secondary md:rotate-0 rotate-90">arrow_back</span>
+        
+        <div class="flex flex-col items-center p-3 bg-surface-container-high border border-border-subtle rounded-xl w-32 text-center">
+          <span class="material-symbols-outlined text-primary mb-1">credit_score</span>
+          <span class="text-xs font-semibold text-white">Razorpay API</span>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <hr class="border-border-subtle/50" />
+
+  <!-- Architecture Layers Grid -->
+  <div class="space-y-4">
+    <div class="flex items-center gap-3">
+      <span class="material-symbols-outlined text-primary text-2xl">layers</span>
+      <h4 class="font-headline-md text-xl text-white">System Architecture</h4>
+    </div>
+    
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div class="glass-panel p-5 rounded-xl border-l-4 border-l-primary space-y-2">
+        <div class="flex items-center gap-2">
+          <span class="font-label-caps text-xs text-primary">01</span>
+          <h5 class="font-semibold text-white text-sm">Next.js 16 UI Layer</h5>
+        </div>
+        <p class="text-xs text-text-secondary leading-relaxed">
+          Provides a responsive, high-performance user interface using React 19, Tailwind CSS 4, and Framer Motion micro-animations.
+        </p>
+      </div>
+
+      <div class="glass-panel p-5 rounded-xl border-l-4 border-l-primary space-y-2">
+        <div class="flex items-center gap-2">
+          <span class="font-label-caps text-xs text-primary">02</span>
+          <h5 class="font-semibold text-white text-sm">NestJS 11 Backend</h5>
+        </div>
+        <p class="text-xs text-text-secondary leading-relaxed">
+          Handles business logic, DTO input validation, JWT authentication, Passport security strategies, and Razorpay payment webhooks.
+        </p>
+      </div>
+
+      <div class="glass-panel p-5 rounded-xl border-l-4 border-l-primary space-y-2">
+        <div class="flex items-center gap-2">
+          <span class="font-label-caps text-xs text-primary">03</span>
+          <h5 class="font-semibold text-white text-sm">Database &amp; 3D Engine</h5>
+        </div>
+        <p class="text-xs text-text-secondary leading-relaxed">
+          Stores products, users, and orders using Prisma ORM while Three.js and React Three Fiber render dynamic 3D asset viewports.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="border-border-subtle/50" />
+
+  <!-- Contributions & Tech Stack Split -->
+  <div class="grid md:grid-cols-2 gap-8">
+    <!-- Contributions -->
+    <div class="space-y-4">
+      <div class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-primary text-2xl">person_pin</span>
+        <h4 class="font-headline-md text-xl text-white">My Contributions</h4>
+      </div>
+      <div class="space-y-3">
+        <div class="flex gap-3">
+          <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
+          <div>
+            <h5 class="text-sm font-semibold text-white">Full-Stack Architecture</h5>
+            <p class="text-xs text-text-secondary">Designed the decoupled Next.js 16 + NestJS 11 full-stack ecosystem.</p>
+          </div>
+        </div>
+        <div class="flex gap-3">
+          <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
+          <div>
+            <h5 class="text-sm font-semibold text-white">3D Viewport Engineering</h5>
+            <p class="text-xs text-text-secondary">Developed the 3D WebGL product viewer using Three.js, React Three Fiber, and Drei.</p>
+          </div>
+        </div>
+        <div class="flex gap-3">
+          <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
+          <div>
+            <h5 class="text-sm font-semibold text-white">Backend &amp; Security Engineering</h5>
+            <p class="text-xs text-text-secondary">Built NestJS REST controllers, JWT auth guards, Passport strategies, and Prisma schema.</p>
+          </div>
+        </div>
+        <div class="flex gap-3">
+          <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
+          <div>
+            <h5 class="text-sm font-semibold text-white">Payment Integration</h5>
+            <p class="text-xs text-text-secondary">Integrated Razorpay API for checkout session creation, order verification, and webhooks.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tech Stack -->
+    <div class="space-y-4">
+      <div class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-primary text-2xl">build</span>
+        <h4 class="font-headline-md text-xl text-white">Technologies Used</h4>
+      </div>
+      <div class="space-y-4">
+        <div>
+          <span class="text-xs font-label-caps text-text-secondary block mb-2">Frontend &amp; 3D Engine</span>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 bg-surface-container-high border border-border-subtle rounded text-xs text-white">Next.js 16</span>
+            <span class="px-2.5 py-1 bg-surface-container-high border border-border-subtle rounded text-xs text-white">React 19</span>
+            <span class="px-2.5 py-1 bg-surface-container-high border border-border-subtle rounded text-xs text-white">Three.js</span>
+            <span class="px-2.5 py-1 bg-surface-container-high border border-border-subtle rounded text-xs text-white">React Three Fiber</span>
+            <span class="px-2.5 py-1 bg-surface-container-high border border-border-subtle rounded text-xs text-white">Framer Motion</span>
+            <span class="px-2.5 py-1 bg-surface-container-high border border-border-subtle rounded text-xs text-white">Tailwind CSS 4</span>
+          </div>
+        </div>
+        <div>
+          <span class="text-xs font-label-caps text-text-secondary block mb-2">Backend &amp; Database</span>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 bg-surface-container-high border border-border-subtle rounded text-xs text-white">NestJS 11</span>
+            <span class="px-2.5 py-1 bg-surface-container-high border border-border-subtle rounded text-xs text-white">TypeScript</span>
+            <span class="px-2.5 py-1 bg-surface-container-high border border-border-subtle rounded text-xs text-white">Prisma ORM</span>
+            <span class="px-2.5 py-1 bg-surface-container-high border border-border-subtle rounded text-xs text-white">SQLite/PostgreSQL</span>
+            <span class="px-2.5 py-1 bg-surface-container-high border border-border-subtle rounded text-xs text-white">JWT &amp; Passport</span>
+          </div>
+        </div>
+        <div>
+          <span class="text-xs font-label-caps text-text-secondary block mb-2">Payments &amp; DevOps</span>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 bg-surface-container-high border border-border-subtle rounded text-xs text-white">Razorpay API</span>
+            <span class="px-2.5 py-1 bg-surface-container-high border border-border-subtle rounded text-xs text-white">Git</span>
+            <span class="px-2.5 py-1 bg-surface-container-high border border-border-subtle rounded text-xs text-white">Node.js</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="border-border-subtle/50" />
+
+  <!-- Key Features -->
+  <div class="space-y-4">
+    <div class="flex items-center gap-3">
+      <span class="material-symbols-outlined text-primary text-2xl">list_alt</span>
+      <h4 class="font-headline-md text-xl text-white">Key Features</h4>
+    </div>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <div class="p-5 glass-panel rounded-xl space-y-2">
+        <span class="material-symbols-outlined text-primary text-2xl">view_in_ar</span>
+        <h5 class="font-semibold text-white text-sm">3D Interactive Viewport</h5>
+        <p class="text-xs text-text-secondary leading-relaxed">
+          Rotate, zoom, and inspect 3D product models in real-time before adding to cart.
+        </p>
+      </div>
+      <div class="p-5 glass-panel rounded-xl space-y-2">
+        <span class="material-symbols-outlined text-primary text-2xl">shopping_cart</span>
+        <h5 class="font-semibold text-white text-sm">Real-Time Cart &amp; Catalog</h5>
+        <p class="text-xs text-text-secondary leading-relaxed">
+          Instant search, dynamic category filtering, and reactive shopping cart state management.
+        </p>
+      </div>
+      <div class="p-5 glass-panel rounded-xl space-y-2">
+        <span class="material-symbols-outlined text-primary text-2xl">credit_card</span>
+        <h5 class="font-semibold text-white text-sm">Razorpay Payment Integration</h5>
+        <p class="text-xs text-text-secondary leading-relaxed">
+          Secure, verified online payments with instant order creation and webhook updates.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="border-border-subtle/50" />
+
+  <!-- Challenges Faced -->
+  <div class="space-y-4">
+    <div class="flex items-center gap-3">
+      <span class="material-symbols-outlined text-primary text-2xl">help_center</span>
+      <h4 class="font-headline-md text-xl text-white">Challenges Faced &amp; Solutions</h4>
+    </div>
+    <div class="space-y-4">
+      <div class="p-4 bg-surface-container-high rounded-xl border border-border-subtle/30 flex gap-4">
+        <div class="text-xs font-label-caps text-text-secondary shrink-0 pt-1 w-24">SSR HYDRATION</div>
+        <div>
+          <h5 class="text-sm font-semibold text-white mb-1">Canvas Hydration &amp; SSR Mismatch</h5>
+          <p class="text-xs text-text-secondary leading-relaxed">
+            Next.js server-side rendering caused WebGL Canvas hydration mismatches on initial page load.
+            <strong class="text-primary">Solution:</strong> Wrapped 3D canvas components in dynamic imports with <code class="text-primary">ssr: false</code> and custom loading fallback skeletons.
+          </p>
+        </div>
+      </div>
+      <div class="p-4 bg-surface-container-high rounded-xl border border-border-subtle/30 flex gap-4">
+        <div class="text-xs font-label-caps text-text-secondary shrink-0 pt-1 w-24">STATE SYNC</div>
+        <div>
+          <h5 class="text-sm font-semibold text-white mb-1">Cart &amp; 3D Model Loading State</h5>
+          <p class="text-xs text-text-secondary leading-relaxed">
+            Synchronizing heavy 3D GLTF asset loading events with cart UI responsiveness was causing UI freezes.
+            <strong class="text-primary">Solution:</strong> Built custom React hooks leveraging React Three Fiber load hooks and async state boundaries for fluid UI interaction.
+          </p>
+        </div>
+      </div>
+      <div class="p-4 bg-surface-container-high rounded-xl border border-border-subtle/30 flex gap-4">
+        <div class="text-xs font-label-caps text-text-secondary shrink-0 pt-1 w-24">PAYMENTS</div>
+        <div>
+          <h5 class="text-sm font-semibold text-white mb-1">Razorpay Webhook Signature Verification</h5>
+          <p class="text-xs text-text-secondary leading-relaxed">
+            Bypassing unverified frontend payment callbacks to prevent order manipulation.
+            <strong class="text-primary">Solution:</strong> Implemented server-side Razorpay signature verification in NestJS using Crypto HMAC SHA256 verification before updating order status.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="border-border-subtle/50" />
+
+  <!-- What I Learned & Impact -->
+  <div class="grid md:grid-cols-2 gap-8">
+    <div class="p-6 bg-primary-container/10 border border-primary-container/30 rounded-2xl space-y-3">
+      <h4 class="font-headline-md text-lg text-white">What I Learned</h4>
+      <p class="text-xs text-text-secondary leading-relaxed">
+        This project solidified my expertise in rendering 3D WebGL scenes using Three.js in React 19, architecting NestJS 11 dependency-injected backend modules, managing Prisma database schemas, and securing Razorpay payment pipelines.
+      </p>
+    </div>
+    <div class="p-6 bg-secondary-container/10 border border-secondary-container/30 rounded-2xl space-y-3">
+      <h4 class="font-headline-md text-lg text-white">Impact &amp; Application</h4>
+      <p class="text-xs text-text-secondary leading-relaxed">
+        Sahari Hub transforms standard flat e-commerce into an engaging, interactive shopping destination. It significantly enhances product visualization, increases buyer confidence, and streamlines online transactions.
+      </p>
+    </div>
+  </div>
+
+  <hr class="border-border-subtle/50" />
+
+  <!-- Future Enhancements -->
+  <div class="space-y-4">
+    <div class="flex items-center gap-3">
+      <span class="material-symbols-outlined text-primary text-2xl">track_changes</span>
+      <h4 class="font-headline-md text-xl text-white">Future Enhancements</h4>
+    </div>
+    <ul class="grid sm:grid-cols-2 gap-x-6 gap-y-2 text-xs text-text-secondary">
+      <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span> WebAR (Augmented Reality) support for placing 3D models in physical spaces</li>
+      <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span> AI-powered personalized product recommendations based on browsing behavior</li>
+      <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Multi-currency international payment gateway support</li>
+      <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Automated order tracking notifications via WhatsApp &amp; SMS</li>
+    </ul>
   </div>
 
 </div>
