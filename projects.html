@@ -433,8 +433,11 @@
     </div>
     
     <div class="flex flex-wrap gap-2 pt-3 border-t border-border-subtle/30">
-      <button class="magnetic-btn" onclick="document.getElementById('modal-sahari').classList.add('active')" style="display:inline-flex;align-items:center;gap:6px;padding:9px 16px;background:#b600a8;color:#fff;border-radius:8px;font-family:Kanit,sans-serif;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:background 0.2s,box-shadow 0.2s;" onmouseover="this.style.background='#830079';" onmouseout="this.style.background='#b600a8';">
-        <span class="material-symbols-outlined" style="font-size:14px;">description</span> Case Study &amp; Architecture
+      <a href="https://sahari-hub-ten.vercel.app/" target="_blank" rel="noopener noreferrer" class="magnetic-btn" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;padding:9px 16px;background:#b600a8;color:#fff;border-radius:8px;font-family:Kanit,sans-serif;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;transition:background 0.2s;" onmouseover="this.style.background='#830079';" onmouseout="this.style.background='#b600a8';">
+        <span class="material-symbols-outlined" style="font-size:14px;">open_in_new</span> Explore Platform
+      </a>
+      <button class="magnetic-btn" onclick="document.getElementById('modal-sahari').classList.add('active')" style="display:inline-flex;align-items:center;gap:6px;padding:9px 16px;background:transparent;color:#D7E2EA;border:1px solid rgba(215,226,234,0.25);border-radius:8px;font-family:Kanit,sans-serif;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:border-color 0.2s,background 0.2s;" onmouseover="this.style.borderColor='rgba(182,0,168,0.5)';this.style.background='rgba(182,0,168,0.08)';" onmouseout="this.style.borderColor='rgba(215,226,234,0.25)';this.style.background='transparent';">
+        <span class="material-symbols-outlined" style="font-size:14px;">description</span> Case Study
       </button>
     </div>
   </div>
@@ -780,7 +783,12 @@
 <div class="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-surface border border-border-subtle rounded-2xl shadow-2xl modal-content flex flex-col">
 <div class="p-6 border-b border-border-subtle flex justify-between items-center sticky top-0 bg-surface/95 backdrop-blur-sm z-10">
 <h3 class="font-headline-md text-xl text-white">Sahari Hub — Case Study &amp; Architecture</h3>
-<button class="text-text-secondary hover:text-white" onclick="document.getElementById('modal-sahari').classList.remove('active')"><span class="material-symbols-outlined">close</span></button>
+<div class="flex items-center gap-3">
+  <a href="https://sahari-hub-ten.vercel.app/" target="_blank" rel="noopener noreferrer" class="magnetic-btn" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:#b600a8;color:#fff;border-radius:6px;font-family:Kanit,sans-serif;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;transition:background 0.2s;" onmouseover="this.style.background='#830079';" onmouseout="this.style.background='#b600a8';">
+    <span class="material-symbols-outlined" style="font-size:14px;">open_in_new</span> Live Site
+  </a>
+  <button class="text-text-secondary hover:text-white" onclick="document.getElementById('modal-sahari').classList.remove('active')"><span class="material-symbols-outlined">close</span></button>
+</div>
 </div>
 <div class="p-8 space-y-10 text-text-primary">
   
