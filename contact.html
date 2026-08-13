@@ -85,83 +85,157 @@
     .magnetic-btn {
         transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.2s ease, background 0.2s ease;
     }
+    
+    /* Elegant Split Panel Transition */
+    .pg-panel {
+        position: fixed; left: 0; right: 0; height: 51vh;
+        background: linear-gradient(160deg, #0C0C0C 0%, #18011F 60%, #2a003f 100%);
+        z-index: 99999; pointer-events: none;
+        transition: transform 0.65s cubic-bezier(0.76, 0, 0.24, 1);
+    }
+    #pg-top { top: 0; transform: translateY(-101%); }
+    #pg-bot { bottom: 0; transform: translateY(101%); }
+    #pg-label {
+        position: fixed; top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 100000;
+        font-family: Kanit, sans-serif;
+        font-size: clamp(18px, 3vw, 30px);
+        font-weight: 700;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: #D7E2EA;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.35s ease;
+        white-space: nowrap;
+    }
+    #pg-label .pg-accent { color: #B600A8; }
+    body.pg-closing #pg-top, body.pg-entering #pg-top { transform: translateY(0); pointer-events: all; }
+    body.pg-closing #pg-bot, body.pg-entering #pg-bot { transform: translateY(0); pointer-events: all; }
+    body.pg-closing #pg-label, body.pg-entering #pg-label { opacity: 1; }
+
+    /* Content Fade Up Animations */
+    .fade-up {
+        opacity: 0;
+        transform: translateY(24px);
+        animation: contentFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.25s; }
+    .delay-3 { animation-delay: 0.4s; }
+
+    @keyframes contentFadeUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between overflow-x-hidden font-body-md selection:bg-primary/20 selection:text-primary relative">
+<body class="min-h-screen flex flex-col justify-between overflow-x-hidden font-body-md selection:bg-primary/20 selection:text-primary relative antialiased pg-entering" style="padding-top:72px;">
+
+<!-- Transition Elements -->
+<div id="pg-top" class="pg-panel"></div>
+<div id="pg-bot" class="pg-panel"></div>
+<div id="pg-label">VANSH <span class="pg-accent">GUPTA</span></div>
 
 <div class="cursor-dot hidden md:block"></div>
 <div class="cursor-outline hidden md:block"></div>
 <div id="scroll-progress"></div>
 
-<!-- Ambient Background Glows -->
-<div class="fixed top-1/4 -left-32 w-96 h-96 bg-[#b600a8]/20 rounded-full blur-[130px] pointer-events-none z-0"></div>
-<div class="fixed bottom-1/4 -right-32 w-96 h-96 bg-[#7621b0]/20 rounded-full blur-[130px] pointer-events-none z-0"></div>
-<div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#be4c00]/10 rounded-full blur-[160px] pointer-events-none z-0"></div>
+<!-- Ambient Atmospheric Glows -->
+<div class="fixed top-1/3 -left-40 w-[450px] h-[450px] bg-[#b600a8]/18 rounded-full blur-[140px] pointer-events-none z-0"></div>
+<div class="fixed bottom-1/3 -right-40 w-[450px] h-[450px] bg-[#7621b0]/18 rounded-full blur-[140px] pointer-events-none z-0"></div>
 
-<!-- Three.js 3D Particle Sphere Background (Fixed to Viewport) -->
-<div id="threejs-bg" style="position:fixed;inset:0;width:100vw;height:100vh;z-index:0;pointer-events:none;opacity:0.65;">
+<!-- Three.js 3D Particle Sphere Background (Centered & Fully Visible) -->
+<div id="threejs-bg" style="position:fixed;inset:0;width:100vw;height:100vh;z-index:0;pointer-events:none;opacity:0.55;">
   <script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
-  <div id="threejs-container-ANIMATION_4" style="width:100%;height:100%"></div>
+  <div id="threejs-container-contact" style="width:100%;height:100%;"></div>
   <script>
   (function() {
-    const container = document.getElementById('threejs-container-ANIMATION_4');
+    if (window.__threejsContactInit) return;
+    window.__threejsContactInit = true;
+
+    const container = document.getElementById('threejs-container-contact');
     if (!container) return;
+
     const w = window.innerWidth;
     const h = window.innerHeight;
 
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, w / h, 0.1, 1000);
-    camera.position.z = 5;
+    const camera = new THREE.PerspectiveCamera(65, w / h, 0.1, 1000);
+    camera.position.set(0, 0, 4.4);
 
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setSize(w, h);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.domElement.style.width = '100%';
-    renderer.domElement.style.height = '100%';
+    renderer.domElement.style.cssText = 'width:100%;height:100%;display:block;';
     container.appendChild(renderer.domElement);
 
     const group = new THREE.Group();
     scene.add(group);
 
-    const particlesCount = 1600;
+    // Particle Cloud
+    const particlesCount = 1400;
     const positions = new Float32Array(particlesCount * 3);
     const colors = new Float32Array(particlesCount * 3);
     for (let i = 0; i < particlesCount; i++) {
-      positions[i*3]   = (Math.random()-0.5)*12;
-      positions[i*3+1] = (Math.random()-0.5)*12;
-      positions[i*3+2] = (Math.random()-0.5)*12;
-      colors[i*3]   = 0.71;
-      colors[i*3+1] = 0;
-      colors[i*3+2] = 0.66;
+      positions[i * 3]     = (Math.random() - 0.5) * 8.5;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 8.5;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 8.5;
+      colors[i * 3]     = 0.71;
+      colors[i * 3 + 1] = 0;
+      colors[i * 3 + 2] = 0.66;
     }
     const geo = new THREE.BufferGeometry();
     geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
     geo.setAttribute('color',    new THREE.BufferAttribute(colors, 3));
-    const mat = new THREE.PointsMaterial({ size:0.055, vertexColors:true, transparent:true, opacity:0.7, blending:THREE.AdditiveBlending });
+    const mat = new THREE.PointsMaterial({
+      size: 0.045,
+      vertexColors: true,
+      transparent: true,
+      opacity: 0.65,
+      blending: THREE.AdditiveBlending
+    });
     group.add(new THREE.Points(geo, mat));
 
-    const sphereMat = new THREE.MeshPhongMaterial({ color:0x18011F, emissive:0xB600A8, emissiveIntensity:0.55, shininess:100, transparent:true, opacity:0.35, wireframe:true });
-    group.add(new THREE.Mesh(new THREE.SphereGeometry(1.6,64,64), sphereMat));
+    // Glowing Geometric Sphere
+    const sphereMat = new THREE.MeshPhongMaterial({
+      color: 0x18011F,
+      emissive: 0xB600A8,
+      emissiveIntensity: 0.55,
+      shininess: 100,
+      transparent: true,
+      opacity: 0.3,
+      wireframe: true
+    });
+    const sphere = new THREE.Mesh(new THREE.SphereGeometry(1.4, 48, 48), sphereMat);
+    group.add(sphere);
 
-    const light = new THREE.PointLight(0xB600A8, 2.5, 12);
-    light.position.set(2,2,2);
-    scene.add(light);
+    // Lighting
+    const pointLight = new THREE.PointLight(0xB600A8, 2.5, 12);
+    pointLight.position.set(2, 2, 2);
+    scene.add(pointLight);
     scene.add(new THREE.AmbientLight(0x404040));
 
-    const mouse = { x:0, y:0 };
+    // Mouse Interaction
+    const mouse = { x: 0, y: 0 };
     window.addEventListener('mousemove', e => {
       mouse.x =  (e.clientX / window.innerWidth)  * 2 - 1;
       mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
     });
 
-    (function animate() {
-      requestAnimationFrame(animate);
-      group.rotation.y += 0.002;
-      group.rotation.x += 0.001;
-      group.position.x += (mouse.x * 0.5 - group.position.x) * 0.05;
-      group.position.y += (mouse.y * 0.5 - group.position.y) * 0.05;
+    let reqId;
+    function animate() {
+      reqId = requestAnimationFrame(animate);
+      group.rotation.y += 0.0018;
+      group.rotation.x += 0.0009;
+      group.position.x += (mouse.x * 0.4 - group.position.x) * 0.04;
+      group.position.y += (mouse.y * 0.4 - group.position.y) * 0.04;
       renderer.render(scene, camera);
-    })();
+    }
+    animate();
 
     window.addEventListener('resize', () => {
       const nw = window.innerWidth, nh = window.innerHeight;
@@ -181,21 +255,21 @@
       <a class="nav-link" href="index.html" style="font-family:Kanit,sans-serif;font-size:clamp(10px,1.2vw,13px);font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(215,226,234,0.6);text-decoration:none;padding-bottom:4px;transition:color 0.3s;white-space:nowrap;">HOME</a>
       <a class="nav-link" href="projects.html" style="font-family:Kanit,sans-serif;font-size:clamp(10px,1.2vw,13px);font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(215,226,234,0.6);text-decoration:none;padding-bottom:4px;transition:color 0.3s;white-space:nowrap;">PROJECTS</a>
       <a class="nav-link" href="about.html" style="font-family:Kanit,sans-serif;font-size:clamp(10px,1.2vw,13px);font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(215,226,234,0.6);text-decoration:none;padding-bottom:4px;transition:color 0.3s;white-space:nowrap;">ABOUT</a>
-      <a href="contact.html" style="font-family:Kanit,sans-serif;font-size:clamp(10px,1.2vw,13px);font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#fff;text-decoration:none;background:linear-gradient(123deg,#18011F 7%,#B600A8 37%,#7621B0 72%,#BE4C00 100%);padding:8px clamp(10px,1.5vw,22px);border-radius:4px;box-shadow:0 0 16px rgba(182,0,168,0.4);white-space:nowrap;">CONTACT</a>
+      <a href="contact.html" style="font-family:Kanit,sans-serif;font-size:clamp(10px,1.2vw,13px);font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#fff;text-decoration:none;background:linear-gradient(123deg,#18011F 7%,#B600A8 37%,#7621B0 72%,#BE4C00 100%);padding:8px clamp(10px,1.5vw,22px);border-radius:4px;box-shadow:0 0 16px rgba(182,0,168,0.45);white-space:nowrap;">CONTACT</a>
     </div>
   </div>
 </nav>
 
 <!-- ===== MAIN CONTENT ===== -->
-<main class="flex-grow pt-28 md:pt-36 pb-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full relative z-10">
+<main class="flex-grow pt-16 md:pt-24 pb-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full relative z-10">
 
   <!-- Header Banner -->
-  <div class="text-center mb-12 md:mb-16">
+  <div class="text-center mb-10 md:mb-14 fade-up delay-1">
     <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(182,0,168,0.1);border:1px solid rgba(182,0,168,0.3);border-radius:9999px;padding:4px 14px;margin-bottom:12px;">
       <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
       <span style="font-family:Kanit,sans-serif;font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#ffaceb;">Available For Hire</span>
     </div>
-    <h1 style="font-family:Kanit,sans-serif;font-size:clamp(36px,5vw,64px);font-weight:900;letter-spacing:-0.03em;line-height:1.1;color:#fff;margin-bottom:16px;">
+    <h1 style="font-family:Kanit,sans-serif;font-size:clamp(34px,5vw,60px);font-weight:900;letter-spacing:-0.03em;line-height:1.1;color:#fff;margin-bottom:14px;">
       Let's Build Something <span class="text-gradient">Extraordinary</span>
     </h1>
     <p class="text-text-secondary font-body-md text-sm md:text-base max-w-2xl mx-auto" style="line-height:1.7;">
@@ -207,7 +281,7 @@
   <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
     <!-- Left Column: Contact Cards -->
-    <div class="lg:col-span-5 space-y-4">
+    <div class="lg:col-span-5 space-y-4 fade-up delay-2">
       
       <!-- Direct Email Card -->
       <a href="mailto:vanshgpt2911@gmail.com" class="glass-panel p-6 rounded-2xl flex items-center gap-4 group transition-all duration-300 hover:border-primary/50 block" style="text-decoration:none;">
@@ -258,7 +332,7 @@
     </div>
 
     <!-- Right Column: Glassmorphic Contact Form -->
-    <div class="lg:col-span-7 glass-panel p-6 sm:p-10 rounded-2xl relative">
+    <div class="lg:col-span-7 glass-panel p-6 sm:p-10 rounded-2xl relative fade-up delay-3">
       
       <h3 style="font-family:Kanit,sans-serif;font-size:22px;font-weight:700;color:#fff;margin-bottom:6px;">Send a Direct Message</h3>
       <p class="text-text-secondary text-xs sm:text-sm font-body-md mb-6">Fill out the details below and your message will be forwarded immediately to my inbox.</p>
@@ -327,6 +401,27 @@
 </footer>
 
 <script>
+// Smooth Page Transition Management
+(function() {
+  window.addEventListener('DOMContentLoaded', function() {
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        document.body.classList.remove('pg-entering');
+      });
+    });
+    document.querySelectorAll('a[href]').forEach(function(a) {
+      const hr = a.getAttribute('href');
+      if (hr && !hr.startsWith('#') && !hr.startsWith('mailto') && !hr.startsWith('tel') && !hr.startsWith('http') && !hr.startsWith('//')) {
+        a.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.body.classList.add('pg-closing');
+          setTimeout(function() { window.location.href = hr; }, 680);
+        });
+      }
+    });
+  });
+})();
+
 // Custom Cursor Logic
 const cursorDot = document.querySelector('.cursor-dot');
 const cursorOutline = document.querySelector('.cursor-outline');
