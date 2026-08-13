@@ -1,0 +1,12 @@
+{
+  "name": "vansh-gupta-portfolio",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Vansh Gupta AI Engineer & Full-Stack Portfolio",
+  "scripts": {
+    "start": "npx serve ."
+  },
+  "dependencies": {
+    "nodemailer": "^6.9.13"
+  }
+}
