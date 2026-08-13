@@ -49,8 +49,8 @@
     body { background-color: #0C0C0C; color: #D7E2EA; }
     .glass-panel {
         background: rgba(215, 226, 234, 0.04);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
         border: 1px solid rgba(215, 226, 234, 0.15);
     }
     .text-gradient {
@@ -87,11 +87,91 @@
     }
 </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between overflow-x-hidden font-body-md selection:bg-primary/20 selection:text-primary">
+<body class="min-h-screen flex flex-col justify-between overflow-x-hidden font-body-md selection:bg-primary/20 selection:text-primary relative">
 
 <div class="cursor-dot hidden md:block"></div>
 <div class="cursor-outline hidden md:block"></div>
 <div id="scroll-progress"></div>
+
+<!-- Ambient Background Glows -->
+<div class="fixed top-1/4 -left-32 w-96 h-96 bg-[#b600a8]/20 rounded-full blur-[130px] pointer-events-none z-0"></div>
+<div class="fixed bottom-1/4 -right-32 w-96 h-96 bg-[#7621b0]/20 rounded-full blur-[130px] pointer-events-none z-0"></div>
+<div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#be4c00]/10 rounded-full blur-[160px] pointer-events-none z-0"></div>
+
+<!-- Three.js 3D Particle Sphere Background (Fixed to Viewport) -->
+<div id="threejs-bg" style="position:fixed;inset:0;width:100vw;height:100vh;z-index:0;pointer-events:none;opacity:0.65;">
+  <script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+  <div id="threejs-container-ANIMATION_4" style="width:100%;height:100%"></div>
+  <script>
+  (function() {
+    const container = document.getElementById('threejs-container-ANIMATION_4');
+    if (!container) return;
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, w / h, 0.1, 1000);
+    camera.position.z = 5;
+
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    renderer.setSize(w, h);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.domElement.style.width = '100%';
+    renderer.domElement.style.height = '100%';
+    container.appendChild(renderer.domElement);
+
+    const group = new THREE.Group();
+    scene.add(group);
+
+    const particlesCount = 1600;
+    const positions = new Float32Array(particlesCount * 3);
+    const colors = new Float32Array(particlesCount * 3);
+    for (let i = 0; i < particlesCount; i++) {
+      positions[i*3]   = (Math.random()-0.5)*12;
+      positions[i*3+1] = (Math.random()-0.5)*12;
+      positions[i*3+2] = (Math.random()-0.5)*12;
+      colors[i*3]   = 0.71;
+      colors[i*3+1] = 0;
+      colors[i*3+2] = 0.66;
+    }
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    geo.setAttribute('color',    new THREE.BufferAttribute(colors, 3));
+    const mat = new THREE.PointsMaterial({ size:0.055, vertexColors:true, transparent:true, opacity:0.7, blending:THREE.AdditiveBlending });
+    group.add(new THREE.Points(geo, mat));
+
+    const sphereMat = new THREE.MeshPhongMaterial({ color:0x18011F, emissive:0xB600A8, emissiveIntensity:0.55, shininess:100, transparent:true, opacity:0.35, wireframe:true });
+    group.add(new THREE.Mesh(new THREE.SphereGeometry(1.6,64,64), sphereMat));
+
+    const light = new THREE.PointLight(0xB600A8, 2.5, 12);
+    light.position.set(2,2,2);
+    scene.add(light);
+    scene.add(new THREE.AmbientLight(0x404040));
+
+    const mouse = { x:0, y:0 };
+    window.addEventListener('mousemove', e => {
+      mouse.x =  (e.clientX / window.innerWidth)  * 2 - 1;
+      mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+    });
+
+    (function animate() {
+      requestAnimationFrame(animate);
+      group.rotation.y += 0.002;
+      group.rotation.x += 0.001;
+      group.position.x += (mouse.x * 0.5 - group.position.x) * 0.05;
+      group.position.y += (mouse.y * 0.5 - group.position.y) * 0.05;
+      renderer.render(scene, camera);
+    })();
+
+    window.addEventListener('resize', () => {
+      const nw = window.innerWidth, nh = window.innerHeight;
+      camera.aspect = nw / nh;
+      camera.updateProjectionMatrix();
+      renderer.setSize(nw, nh);
+    });
+  })();
+  </script>
+</div>
 
 <!-- ===== UNIFIED NAVIGATION ===== -->
 <nav id="main-nav" style="position:fixed;top:0;width:100%;z-index:9999;background:rgba(19,19,19,0.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(215,226,234,0.15);">
@@ -107,7 +187,7 @@
 </nav>
 
 <!-- ===== MAIN CONTENT ===== -->
-<main class="flex-grow pt-28 md:pt-36 pb-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+<main class="flex-grow pt-28 md:pt-36 pb-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full relative z-10">
 
   <!-- Header Banner -->
   <div class="text-center mb-12 md:mb-16">
@@ -231,7 +311,7 @@
 </main>
 
 <!-- ===== FOOTER ===== -->
-<footer class="border-t border-border-subtle w-full py-6" style="background:rgba(19,19,19,0.78);backdrop-filter:blur(20px);">
+<footer class="border-t border-border-subtle w-full py-6 relative z-10" style="background:rgba(19,19,19,0.78);backdrop-filter:blur(20px);">
   <div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto gap-4">
     <div class="font-headline-md text-sm text-on-surface text-center md:text-left font-semibold">
       VANSH GUPTA
