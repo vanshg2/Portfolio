@@ -26,7 +26,7 @@ export default async function handler(req, res) {
   }
 
   const gmailUser = process.env.GMAIL_USER || 'vanshgpt2911@gmail.com';
-  const gmailPass = process.env.GMAIL_APP_PASSWORD;
+  const gmailPass = process.env.GMAIL_APP_PASSWORD || 'lmxq pazg etkm dxhq';
 
   if (!gmailPass) {
     console.error('GMAIL_APP_PASSWORD environment variable is missing.');
