@@ -15,7 +15,7 @@ ABOUT VANSH:
 - Building toward an AI/ML Engineer / AI Agent Engineer career
 - Previously interned at InnoByte Services and Viralkey Media (Data & Performance Analyst)
 - Based in New Delhi, India
-- Actively job-seeking for roles: AI/ML Engineer, Full-Stack Developer, AI Agent Engineer, Software Engineer, Data Scientist
+- Actively open for opportunities: Full-time engineering roles (AI/ML, Full-Stack, AI Agent Engineer, Software Engineer) and Freelance / Contract projects
 
 TECHNICAL SKILLS:
 - Core: Python, Machine Learning, Deep Learning, NLP, LLMs, RAG, Agentic AI, LangChain
@@ -36,7 +36,7 @@ CONTACT & LINKS:
 - GitHub: github.com/vanshg2
 
 HIRING INFO:
-- Open to full-time roles and internships in AI/ML, Full-Stack Web/Mobile Development, Software Engineering, Data Science
+- Open to full-time roles, contracts, and freelance projects in AI/ML, Full-Stack Web/Mobile Development, and Software Engineering
 - Comfortable with remote, hybrid, or on-site in Delhi NCR
 - Available immediately
 - Strong preference for roles involving LLMs, Agentic AI, RAG, or applied ML
