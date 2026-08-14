@@ -189,7 +189,7 @@
     background: linear-gradient(160deg, #0C0C0C 0%, #18011F 60%, #2a003f 100%);
     z-index: 99999;
     pointer-events: none;
-    transition: transform 0.52s cubic-bezier(0.76, 0, 0.24, 1);
+    transition: transform 0.65s cubic-bezier(0.76, 0, 0.24, 1);
   }
   #pg-top {
     top: 0;
@@ -213,7 +213,7 @@
     color: #D7E2EA;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.35s ease;
     white-space: nowrap;
   }
   #pg-label .pg-accent {
@@ -240,20 +240,14 @@
 <script>
 (function(){
   document.body.classList.add('pg-entering');
-  function openCurtains() {
+  window.addEventListener('DOMContentLoaded', function(){
     requestAnimationFrame(function(){
       requestAnimationFrame(function(){
         document.body.classList.remove('pg-entering');
       });
     });
-  }
-  if (document.readyState === 'loading') {
-    window.addEventListener('DOMContentLoaded', openCurtains);
-  } else {
-    openCurtains();
-  }
-  setTimeout(function(){ document.body.classList.remove('pg-entering'); }, 450);
-
+  });
+  // Link click transition: closes curtains first, then navigates
   document.querySelectorAll('a[href]').forEach(function(a){
     var hr = a.getAttribute('href');
     if (hr && !hr.startsWith('#') && !hr.startsWith('mailto:') && !hr.startsWith('tel:') && !hr.startsWith('http') && !hr.startsWith('//') && a.getAttribute('target') !== '_blank' && !a.hasAttribute('download')) {
@@ -262,7 +256,7 @@
         document.body.classList.add('pg-closing');
         setTimeout(function(){
           window.location.href = hr;
-        }, 520);
+        }, 680);
       });
     }
   });
