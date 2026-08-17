@@ -111,7 +111,7 @@ Comprehensive candidate management CRM featuring secure role-based authenticatio
 - **Role-Based Access Control:** Separate administrative and recruiter view permissions.
 - **Relational Backend:** Structured database schema implemented in MySQL with SQLAlchemy ORM.
 - **Stack:** `Python` &bull; `SQLAlchemy` &bull; `MySQL` &bull; `Streamlit` &bull; `Pandas`
-- **Links:** 🌐 [Launch Recruitment CRM](https://recruitementcrm-48ygcpwkdv7axnp8mhzmdc.streamlit.app/) *(Demo Login: `admin` / `admin@123`)*
+- **Links:** 🌐 [Launch Recruitment CRM](https://recruitement-crm-v2.onrender.com/login) *(Demo Login: `admin` / `admin@123`)*
 
 ---
 
