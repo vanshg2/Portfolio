@@ -17,8 +17,8 @@
 
 [![Status](https://img.shields.io/badge/Status-Available%20for%20Full--Time%20%26%20Freelance-22c55e?style=flat-square)](mailto:vanshgpt2911@gmail.com)
 [![Location](https://img.shields.io/badge/Location-New%20Delhi%2C%20India%20(Remote%20%2F%20Hybrid)-7621b0?style=flat-square)](https://vanshgupta-ai.vercel.app/)
-[![Projects](https://img.shields.io/badge/Shipped%20Projects-8%2B%20Production%20Apps-b600a8?style=flat-square)](https://vanshgupta-ai.vercel.app/projects.html)
-[![Internships](https://img.shields.io/badge/Internships-2%20Industry%20Roles-orange?style=flat-square)](https://vanshgupta-ai.vercel.app/about.html)
+[![Projects](https://img.shields.io/badge/Shipped%20Projects-8%2B%20Production%20Apps-b600a8?style=flat-square)](https://vanshgupta-ai.vercel.app/projects)
+[![Internships](https://img.shields.io/badge/Internships-2%20Industry%20Roles-orange?style=flat-square)](https://vanshgupta-ai.vercel.app/about)
 
 <br/>
 
