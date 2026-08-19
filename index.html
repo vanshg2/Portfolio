@@ -369,27 +369,152 @@
   .tech-pill {
     display: inline-flex;
     align-items: center;
-    gap: 7px;
-    background: rgba(215,226,234,0.05);
-    border: 1px solid rgba(215,226,234,0.15);
+    gap: 8px;
     border-radius: 9999px;
-    padding: 8px 18px;
+    padding: 8px 20px;
     font-family: Kanit, sans-serif;
     font-size: 13px;
     font-weight: 500;
     letter-spacing: 0.04em;
-    color: rgba(215,226,234,0.85);
     cursor: default;
-    transition: background 0.25s, border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease, color 0.25s ease;
+    backdrop-filter: blur(12px);
   }
   .tech-pill:hover {
-    background: rgba(182,0,168,0.12);
-    border-color: rgba(182,0,168,0.5);
-    transform: translateY(-3px) scale(1.04);
-    box-shadow: 0 6px 20px rgba(182,0,168,0.2);
-    color: #ffaceb;
+    transform: translateY(-3px) scale(1.05);
   }
   .tech-pill svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+  /* Distinct Colorful Pill Themes */
+  .pill-python {
+    background: rgba(55, 118, 171, 0.14);
+    border: 1px solid rgba(255, 212, 59, 0.45);
+    color: #FFE873;
+    box-shadow: 0 0 16px rgba(55, 118, 171, 0.22);
+  }
+  .pill-python:hover {
+    background: rgba(55, 118, 171, 0.28);
+    border-color: #FFD43B;
+    box-shadow: 0 0 24px rgba(255, 212, 59, 0.45);
+    color: #FFFFFF;
+  }
+
+  .pill-react {
+    background: rgba(97, 218, 251, 0.12);
+    border: 1px solid rgba(97, 218, 251, 0.45);
+    color: #61DAFB;
+    box-shadow: 0 0 16px rgba(97, 218, 251, 0.22);
+  }
+  .pill-react:hover {
+    background: rgba(97, 218, 251, 0.25);
+    border-color: #61DAFB;
+    box-shadow: 0 0 24px rgba(97, 218, 251, 0.5);
+    color: #FFFFFF;
+  }
+
+  .pill-expo {
+    background: rgba(182, 0, 168, 0.16);
+    border: 1px solid rgba(255, 172, 235, 0.45);
+    color: #ffaceb;
+    box-shadow: 0 0 16px rgba(182, 0, 168, 0.28);
+  }
+  .pill-expo:hover {
+    background: rgba(182, 0, 168, 0.3);
+    border-color: #ffaceb;
+    box-shadow: 0 0 24px rgba(255, 172, 235, 0.55);
+    color: #FFFFFF;
+  }
+
+  .pill-ts {
+    background: rgba(49, 120, 198, 0.14);
+    border: 1px solid rgba(49, 120, 198, 0.45);
+    color: #93c5fd;
+    box-shadow: 0 0 16px rgba(49, 120, 198, 0.22);
+  }
+  .pill-ts:hover {
+    background: rgba(49, 120, 198, 0.28);
+    border-color: #60a5fa;
+    box-shadow: 0 0 24px rgba(49, 120, 198, 0.5);
+    color: #FFFFFF;
+  }
+
+  .pill-fastapi {
+    background: rgba(5, 150, 105, 0.15);
+    border: 1px solid rgba(52, 211, 153, 0.45);
+    color: #6ee7b7;
+    box-shadow: 0 0 16px rgba(5, 150, 105, 0.22);
+  }
+  .pill-fastapi:hover {
+    background: rgba(5, 150, 105, 0.28);
+    border-color: #34d399;
+    box-shadow: 0 0 24px rgba(52, 211, 153, 0.5);
+    color: #FFFFFF;
+  }
+
+  .pill-pytorch {
+    background: rgba(238, 76, 44, 0.14);
+    border: 1px solid rgba(247, 147, 30, 0.45);
+    color: #fdba74;
+    box-shadow: 0 0 16px rgba(238, 76, 44, 0.22);
+  }
+  .pill-pytorch:hover {
+    background: rgba(238, 76, 44, 0.28);
+    border-color: #fb923c;
+    box-shadow: 0 0 24px rgba(247, 147, 30, 0.5);
+    color: #FFFFFF;
+  }
+
+  .pill-langchain {
+    background: rgba(118, 33, 176, 0.18);
+    border: 1px solid rgba(215, 158, 255, 0.45);
+    color: #e2b6ff;
+    box-shadow: 0 0 16px rgba(118, 33, 176, 0.28);
+  }
+  .pill-langchain:hover {
+    background: rgba(118, 33, 176, 0.32);
+    border-color: #d79eff;
+    box-shadow: 0 0 24px rgba(215, 158, 255, 0.55);
+    color: #FFFFFF;
+  }
+
+  .pill-postgres {
+    background: rgba(51, 103, 145, 0.16);
+    border: 1px solid rgba(68, 121, 161, 0.5);
+    color: #a5f3fc;
+    box-shadow: 0 0 16px rgba(51, 103, 145, 0.22);
+  }
+  .pill-postgres:hover {
+    background: rgba(51, 103, 145, 0.3);
+    border-color: #38bdf8;
+    box-shadow: 0 0 24px rgba(51, 103, 145, 0.5);
+    color: #FFFFFF;
+  }
+
+  .pill-tailwind {
+    background: rgba(6, 182, 212, 0.14);
+    border: 1px solid rgba(6, 182, 212, 0.45);
+    color: #67e8f9;
+    box-shadow: 0 0 16px rgba(6, 182, 212, 0.22);
+  }
+  .pill-tailwind:hover {
+    background: rgba(6, 182, 212, 0.28);
+    border-color: #22d3ee;
+    box-shadow: 0 0 24px rgba(6, 182, 212, 0.5);
+    color: #FFFFFF;
+  }
+
+  .pill-docker {
+    background: rgba(36, 150, 237, 0.14);
+    border: 1px solid rgba(36, 150, 237, 0.45);
+    color: #7dd3fc;
+    box-shadow: 0 0 16px rgba(36, 150, 237, 0.22);
+  }
+  .pill-docker:hover {
+    background: rgba(36, 150, 237, 0.28);
+    border-color: #38bdf8;
+    box-shadow: 0 0 24px rgba(36, 150, 237, 0.5);
+    color: #FFFFFF;
+  }
 
   /* Resume button */
   .resume-btn {
@@ -545,61 +670,61 @@
     <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;max-width:980px;margin:0 auto;">
 
       <!-- Python -->
-      <span class="tech-pill">
+      <span class="tech-pill pill-python">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.9 2C7.5 2 7.8 3.9 7.8 3.9V5.9H12V6.5H5.8S3 6.2 3 10.7s2.4 4.3 2.4 4.3H6.9V12.8s-.1-2.4 2.4-2.4h4.1s2.3.04 2.3-2.2V5.1S16.2 2 11.9 2zm-1.3 1.4c.4 0 .8.3.8.8s-.3.8-.8.8-.8-.3-.8-.8.4-.8.8-.8z" fill="#3776AB"/><path d="M12.1 22c4.4 0 4.1-1.9 4.1-1.9v-2H12v-.6h6.2s2.8.3 2.8-4.2-2.4-4.3-2.4-4.3H17.1v2.2s.1 2.4-2.4 2.4H10.6s-2.3-.04-2.3 2.2v3.1S7.8 22 12.1 22zm1.3-1.4c-.4 0-.8-.3-.8-.8s.3-.8.8-.8.8.3.8.8-.4.8-.8.8z" fill="#FFD43B"/></svg>
         Python
       </span>
 
       <!-- Next.js & React -->
-      <span class="tech-pill">
+      <span class="tech-pill pill-react">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="#000" stroke="#fff" stroke-width="1.5"/><path d="M14.5 8.5V15.5M9.5 8.5L14.5 15.5M9.5 8.5V15.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         Next.js &amp; React
       </span>
 
       <!-- React Native / Expo -->
-      <span class="tech-pill">
+      <span class="tech-pill pill-expo">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="12" cy="12" rx="9" ry="3.5" stroke="#61DAFB" stroke-width="1.2" transform="rotate(30 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.5" stroke="#61DAFB" stroke-width="1.2" transform="rotate(90 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.5" stroke="#61DAFB" stroke-width="1.2" transform="rotate(150 12 12)"/><circle cx="12" cy="12" r="1.5" fill="#61DAFB"/></svg>
         React Native / Expo
       </span>
 
       <!-- TypeScript -->
-      <span class="tech-pill">
+      <span class="tech-pill pill-ts">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="3" fill="#3178C6"/><path d="M6 8h8M10 8v10M15.5 13.5c.8.8 1.8 1.2 2.8 1.2 1 0 1.7-.5 1.7-1.2 0-1.8-4-1.2-4-3.5 0-1.2 1-2 2.6-2 1 0 1.9.4 2.6 1l-1 1.2c-.6-.5-1.1-.8-1.7-.8-.7 0-1.2.4-1.2.9 0 1.7 4 1.1 4 3.5 0 1.3-1.1 2.2-2.8 2.2-1.2 0-2.3-.5-3.1-1.3l1.1-1.2z" fill="#fff"/></svg>
         TypeScript
       </span>
 
       <!-- FastAPI & NestJS -->
-      <span class="tech-pill">
+      <span class="tech-pill pill-fastapi">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L4 13h7l-1 9 9-11h-7l1-9z" fill="#059669"/></svg>
         FastAPI &amp; NestJS
       </span>
 
       <!-- PyTorch & Scikit-Learn -->
-      <span class="tech-pill">
+      <span class="tech-pill pill-pytorch">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a9 9 0 00-6.4 15.3l1.5-1.5A7 7 0 1112 5.1V3z" fill="#EE4C2C"/><circle cx="16" cy="6" r="1.5" fill="#EE4C2C"/></svg>
         PyTorch &amp; Scikit-Learn
       </span>
 
       <!-- LangChain & LLMs -->
-      <span class="tech-pill">
+      <span class="tech-pill pill-langchain">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h6M14 8h6M4 12h16M4 16h6M14 16h6" stroke="#ffaceb" stroke-width="1.8" stroke-linecap="round"/><circle cx="11" cy="8" r="1.5" fill="#ffaceb"/><circle cx="13" cy="16" r="1.5" fill="#ffaceb"/></svg>
         LangChain / Agentic AI
       </span>
 
       <!-- PostgreSQL & SQL -->
-      <span class="tech-pill">
+      <span class="tech-pill pill-postgres">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="12" cy="6" rx="8" ry="3" stroke="#336791" stroke-width="1.5"/><path d="M4 6v6c0 1.66 3.58 3 8 3s8-1.34 8-3V6" stroke="#336791" stroke-width="1.5"/><path d="M4 12v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6" stroke="#336791" stroke-width="1.5"/></svg>
         PostgreSQL &amp; SQL
       </span>
 
       <!-- Tailwind CSS -->
-      <span class="tech-pill">
+      <span class="tech-pill pill-tailwind">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 6c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.9.2 1.6 1 2.4 1.7 1.3 1.3 2.8 2.9 6.4 2.9 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.9-.2-1.6-1-2.4-1.7-1.3-1.3-2.8-2.9-6.4-2.9z" fill="#06B6D4"/></svg>
         Tailwind CSS
       </span>
 
       <!-- Docker & DevOps -->
-      <span class="tech-pill">
+      <span class="tech-pill pill-docker">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 4H9v3h4V4zM9 8H5v3h4V8zM13 8H9v3h4V8zM17 8h-4v3h4V8z" fill="#2496ED"/><path d="M21.9 11.4a4 4 0 00-1.5-.3c-.4-1.3-1.4-2.4-2.9-3l-.5-.3-.3.5c-.3.5-.4 1.3-.3 1.9-.5.3-.9.7-1.2 1.2H2.8a.8.8 0 00-.8.8c0 1.2.2 2.4.8 3.5 1.8 3 5.1 3.3 6.2 3.3 4.8 0 8.5-2.2 10.2-6.2.7 0 1.6-.2 2.1-.8l.4-.5-.8-.1z" fill="#2496ED"/></svg>
         Docker &amp; Cloud
       </span>
