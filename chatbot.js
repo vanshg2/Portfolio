@@ -18,16 +18,20 @@ ABOUT VANSH:
 - Actively open for opportunities: Full-time engineering roles (AI/ML, Full-Stack, AI Agent Engineer, Software Engineer) and Freelance / Contract projects
 
 TECHNICAL SKILLS:
-- Core: Python, Machine Learning, Deep Learning, NLP, LLMs, RAG, Agentic AI, LangChain
-- Data: Pandas, NumPy, Scikit-Learn, XGBoost, SQL, Power BI, Plotly, Streamlit
-- Other: Git, Docker, Hugging Face, MySQL, SQLAlchemy, FastAPI (basic), React/JS (basic)
+- Full-Stack & Mobile: Next.js (App Router), React, React Native (Expo SDK 51), NestJS, FastAPI, Node.js, Express, TypeScript, JavaScript (ES6+), Tailwind CSS, NativeWind, Three.js/WebGL, Electron, Prisma ORM, SQLAlchemy, Zustand, Redux, REST APIs, GraphQL
+- Databases & Cloud: PostgreSQL, MySQL, SQLite, MongoDB, Docker, Git, GitHub, Vercel, Render, Postman, Linux/Bash
+- AI / ML & Generative AI: Python, PyTorch, TensorFlow, Scikit-Learn, XGBoost, OpenCV, NLP, NLTK, VADER, LLMs, LangChain, RAG, Agentic AI, Hugging Face, Gemini API, OpenAI API, Vector DBs, Prompt Engineering
+- Data Analytics & Viz: Pandas, NumPy, Matplotlib, Seaborn, Plotly, Power BI, Streamlit, EDA, Statistical Modeling
 
 PROJECTS:
-1. AI-Powered Recruitment CRM — Role-based authentication system for 200+ candidate profiles. Built with Python, MySQL, SQLAlchemy, Streamlit. Features recruiter dashboards, payment/invoice modules, candidate pipeline tracking.
-2. YouTube Toxic Comment Analyzer — ~89% accuracy TF-IDF + ML pipeline. Pulls live comments via YouTube Data API, classifies toxicity, shows interactive analytics. Built with Python, Scikit-Learn, Streamlit.
-3. Resume Feedback Chatbot — Combines XGBoost job-role prediction with LLM prompting for structured resume feedback. PDF parsing interface with ATS scoring and skill-gap analysis. Built with Python, XGBoost, Streamlit.
-4. CineSense — AI movie discovery platform with content-based recommendations, TMDB/YouTube API integration, actor profiles, and VADER sentiment analytics on reviews. Built with Python, Scikit-Learn, Streamlit.
-5. Amazon Sales Intelligence — EDA & data cleaning pipeline with interactive KPI dashboards, region-wise visualisations, and time-series sales trends. Built with Python, Pandas, Plotly, Streamlit.
+1. Rhythmly — Offline-first encrypted life management platform (women's health, daily planner, native PDF template generator). Built with React Native (Expo SDK 51), SQLite, TypeScript, Zustand, NativeWind, MMKV, Electron, AES-256 encryption.
+2. Sahari Hub — Full-stack digital ecosystem with decoupled REST architecture. Built with Next.js, React, FastAPI, PostgreSQL, Tailwind CSS, TypeScript.
+3. Velocity Customs CRM — SaaS CRM for automotive customization & detailing businesses (invoicing, inventory, tax automation). Built with Next.js, FastAPI, PostgreSQL, Tailwind CSS, Python.
+4. AI-Powered Recruitment CRM — Role-based authentication candidate pipeline system for 200+ profiles. Built with Python, MySQL, SQLAlchemy, Streamlit. Features recruiter dashboards, payment/invoice modules, candidate analytics.
+5. YouTube Toxic Comment Analyzer — ~89% accuracy TF-IDF + ML moderation pipeline. Pulls live comments via YouTube Data API v3, classifies toxicity, provides interactive Streamlit analytics.
+6. Resume Feedback Chatbot & Matcher — Combines XGBoost job-role prediction with LLM prompting for ATS scoring and skill-gap analysis from resume PDFs. Built with Python, XGBoost, Streamlit, PyPDF.
+7. CineSense — AI movie discovery platform with cosine content-based recommendations, TMDB/YouTube APIs, cast profiles, and VADER sentiment analysis on reviews. Built with Python, Scikit-Learn, Streamlit.
+8. Amazon Sales Intelligence — EDA and business intelligence dashboard with interactive KPI filters, regional insights, and time-series trends. Built with Python, Pandas, Plotly, Streamlit.
 
 CONTACT & LINKS:
 - Email: vanshgpt2911@gmail.com
